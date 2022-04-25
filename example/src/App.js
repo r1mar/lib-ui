@@ -4,6 +4,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import resources_de from 'rm-lib-ui/dist/i18n/resources_de.json';
 import resources_en from 'rm-lib-ui/dist/i18n/resources_en.json';
+import React from 'react';
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -29,7 +30,7 @@ function App() {
       <NavbarNav>
         <NavbarLink active={true} href="#">Home</NavbarLink>
         <NavbarLink href="#">Link</NavbarLink>
-        <NavbarDropdown />
+        <NavbarDropdown caption="Dropdown" />
         <NavbarLink href="#" disabled={true}>Disabled</NavbarLink>
       </NavbarNav>
       <InlineForm />

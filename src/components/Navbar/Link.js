@@ -20,13 +20,13 @@ import { useTranslation } from 'react-i18next';
  * @returns 
  */
 export default function Link(props) {
-  let className = `nav-link ${props.className} ${props.active ? 'active' : ''} ${props.disabled ? 'disabled' : ''}`;
+  let className = `nav-link ${props.className || ''} ${props.active ? 'active' : ''} ${props.disabled ? 'disabled' : ''}`;
 
   const { t } = useTranslation('nav-link');
 
   if (props.href) {
     return (
-      <li class="nav-item">
+      <li className="nav-item">
         <a className={className} href={props.href} style={props.style}>
           {props.children}
           {props.active && <span className="sr-only">{t('active-label')}</span>}
@@ -37,7 +37,7 @@ export default function Link(props) {
 
   if (props.to) {
     return (
-      <li class="nav-item">
+      <li className="nav-item">
         <RouterLink className={className} to={props.to} style={props.style}>
           {props.children}
           {props.active && <span className="sr-only">{t('active-label')}</span>}

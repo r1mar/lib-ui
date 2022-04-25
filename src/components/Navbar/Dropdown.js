@@ -1,17 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import InnerDropdown from '../Dropdown';
+
+"nav-item nav-link"
 
 export default function Dropdown(props) {
   return (
-    <li className="nav-item dropdown">
-    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Dropdown
-    </a>
-    <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-      <a className="dropdown-item" href="#">Action</a>
-      <a className="dropdown-item" href="#">Another action</a>
-      <div className="dropdown-divider"></div>
-      <a className="dropdown-item" href="#">Something else here</a>
-    </div>
-  </li>
+    <InnerDropdown {...props} className="nav-item" togglerClassName="nav-link" as="li" togglerAs="a">
+      
+    </InnerDropdown>
   );
 }

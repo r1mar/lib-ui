@@ -18,7 +18,7 @@ import React  from 'react';
  */
 
 export default function Nav(props) {
-  const className = `navbar-nav mr-auto ${props.className}`;
+  const className = `navbar-nav mr-auto ${props.className || ''}`;
 
   return (
     <ul className={className} style={props.style}>
