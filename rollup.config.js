@@ -4,7 +4,7 @@ import del from 'rollup-plugin-delete';
 import pkg from './package.json';
 import copy from 'rollup-plugin-copy';
 
-export default {
+const config = {
 	input: pkg.source,
 	output: [
 		{
@@ -27,10 +27,12 @@ export default {
 		del({ targets: ['dist/*'] }),		
 		copy({
       targets: [{
-        src: "src/themes",
+        src: "src/i18n",
 				dest : "dist"
 			}]
     })
 	],
 	external: Object.keys(pkg.peerDependencies || {}),
 };
+
+export default config;

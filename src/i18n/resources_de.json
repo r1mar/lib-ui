@@ -1,0 +1,7 @@
+{
+  "nav-link": {
+    "active-label": "(aktuell)",
+    "invalid-param": "Die Navlink-Komponente benötigt mindestens einen der Parameter 'href' oder 'to'",
+    "toggler-label": "Navigation umschalten"
+  }
+}

@@ -1,9 +1,30 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
+/**
+ * @typedef Props
+ * 
+ * @property {string|object} brand text or any inline-tag for brand
+ * @property {'dark'|'light'} [color='dark'] font color
+ * @property {'primary'|'secondary'|'success'|'warning'|'danger'|'info'|'dark'|'light'|'white'} [backgroundColor='light'] 
+ * @property {'sm'|'md'|'lg'|'xl'} [breakpoint='lg']
+ * @property {'fixed-top'|'fixed-bottom'|'sticky-top'} [position]
+ * @property {string} [className]
+ * @property {object} [style]
+ * @property {Array<InlineForm|NavbarNav>} children
+ */
+
+/**
+ * 
+ * @param {Props} props 
+ * @returns {object} rendered component
+ */
 export default function Navbar(props) {
   const [collapsed, setCollapsed] = useState(true);
 
-  let navClass = `navbar ${props.color === 'dark' ? 'navbar-light' : 'navbar-dark'} bg-light`;
+  const { t } = useTranslation('navbar');
+
+  let navClass = `navbar ${props.color === 'light' ? 'navbar-dark' : 'navbar-light'} ${props.className}`;
   const togglerClass = `navbar-toggler ${collapsed ? "collapsed" : ""}`;
   const contentClass = `navbar-collapse collapse ${collapsed ? "" : "show"}`;
 
@@ -25,6 +46,12 @@ export default function Navbar(props) {
     navClass += " navbar-expand-lg"; // default and fallback
   }
 
+  // setting positions
+  const positions = ['fixed-top', 'fixed-bottom', 'sticky-top'];
+  if(props.position && positions.indexOf(props.position) >= 0) {
+    navClass += ` ${props.position}`;
+  }
+
   const toggleCollaps = e => {
     e.preventDefault();
 
@@ -32,10 +59,10 @@ export default function Navbar(props) {
   }
 
   return (
-    <nav className={navClass}>
-      {props.brand && <a className="navbar-brand" href="#">{props.brand}</a>}
+    <nav className={navClass} style={props.style}>
+      {props.brand && <a className="navbar-brand" href="/">{props.brand}</a>}
       <button className={togglerClass} type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-        aria-expanded={!collapsed} aria-label="Toggle navigation" onClick={toggleCollaps}>
+        aria-expanded={!collapsed} aria-label={t('Toggle navigation')} onClick={toggleCollaps}>
         <span className="navbar-toggler-icon"></span>
       </button>
 

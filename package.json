@@ -9,6 +9,8 @@
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "i18next": "^21.6.16",
+    "react-i18next": "^11.16.7",
     "react-scripts": "^4.0.3",
     "web-vitals": "^2.1.4"
   },
@@ -50,7 +52,6 @@
     "@babel/preset-react": "^7.16.7",
     "@rollup/plugin-babel": "^5.3.1",
     "concurrently": "^7.1.0",
-    "node-sass": "^7.0.1",
     "rollup": "^2.70.2",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-delete": "^2.0.0",
