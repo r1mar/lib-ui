@@ -1,10 +1,11 @@
 import 'bootstrap-scss/bootstrap.scss';
-import { InlineForm, Navbar, NavbarNav, NavbarDropdown, NavbarLink } from 'rm-lib-ui';
+import { InlineForm, Navbar, NavbarAnchor, NavbarNav, NavbarDropdown, NavbarLink } from 'rm-lib-ui';
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import resources_de from 'rm-lib-ui/dist/i18n/resources_de.json';
 import resources_en from 'rm-lib-ui/dist/i18n/resources_en.json';
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
@@ -25,16 +26,22 @@ i18n
   });
 
 function App() {
+  /*
+          
+   */
   return (
-    <Navbar brand="Navbar" color='dark' backgroundColor="light" breakpoint="lg" >
-      <NavbarNav>
-        <NavbarLink active={true} href="#">Home</NavbarLink>
-        <NavbarLink href="#">Link</NavbarLink>
-        <NavbarDropdown caption="Dropdown" />
-        <NavbarLink href="#" disabled={true}>Disabled</NavbarLink>
-      </NavbarNav>
-      <InlineForm />
-    </Navbar>
+    <div>
+      <Navbar brand="Navbar" color='dark' backgroundColor="light" breakpoint="lg" >
+        <NavbarNav>
+          <NavbarLink to="/home1">Link</NavbarLink>
+          <NavbarAnchor href="/">Home</NavbarAnchor>
+          <NavbarDropdown caption="Dropdown" />
+          <NavbarLink to="/home2" disabled={true}>Disabled</NavbarLink>
+        </NavbarNav>
+        <InlineForm />
+      </Navbar>
+      <Outlet />
+    </div>
   );
 }
 

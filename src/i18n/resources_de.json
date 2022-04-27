@@ -1,7 +1,14 @@
 {
-  "nav-link": {
-    "active-label": "(aktuell)",
-    "invalid-param": "Die Navlink-Komponente benötigt mindestens einen der Parameter 'href' oder 'to'",
+  "navbar": {
     "toggler-label": "Navigation umschalten"
+  },
+  "nav-anchor": {
+    "active-label": "(aktuell)"
+  },
+  "nav-link": {
+    "active-label": "(aktuell)"
+  },
+  "use-validation": {
+    "missed-prop": "Erforderliche Eingenschaft {{name}} bei der {{targetComponent}} Komponente nicht angegeben"
   }
 }

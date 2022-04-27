@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import useValidation from '../../hooks/useValidation';
 
 /**
  * @typedef NavbarLink
@@ -15,6 +16,8 @@ import { useTranslation } from 'react-i18next';
 /**
  * Subitem of Nav-Component. Can navigate to external and internal links(react-router-dom)
  * @example
+ * import { NavbarLink } from 'rm-lib-ui';
+ * ...
  * <NavbarLink to="/home">Home</NavbarLink>
  * @param {NavbarLink} props 
  * @returns 
@@ -28,6 +31,9 @@ export default function Link(props) {
   }
 
   const { t } = useTranslation('nav-link');
+
+  const { assertRequired } = useValidation('NavbarLink', useTranslation('use-validation'));
+  assertRequired(props, 'to');
 
   return (
     <li className="nav-item">

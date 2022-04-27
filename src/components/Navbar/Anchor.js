@@ -1,8 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import useValidation from '../../hooks/useValidation';
 
 /**
- * @typedef NavbarLink
+ * @typedef NavbarAnchor
  * 
  * @property {string} href url to external link
  * @property {boolean} [disabled=false]
@@ -14,18 +15,21 @@ import { useTranslation } from 'react-i18next';
 /**
  * Subitem of Nav-Component. Can navigate to external and internal links(react-router-dom)
  * @example
- * <NavbarAnchor href="http://localhost:3000">Home</NavbarLink>
- * @param {NavbarLink} props 
+ * <NavbarAnchor href="https://github.com">Home</NavbarAnchor>
+ * @param {NavbarAnchor} props 
  * @returns 
  */
-export default function Link(props) {
+export default function Anchor(props) {
   let className = `nav-link ${props.className || ''} ${props.active ? 'active' : ''} ${props.disabled ? 'disabled' : ''}`;
 
-  if((window.location.origin + window.location.pathname) === props.href) {
+  if(window.location.pathname === props.href) {
     className += ' active';
   }
 
-  const { t } = useTranslation('nav-link');
+  const { t } = useTranslation('nav-anchor');
+
+  const { assertRequired } = useValidation('NavbarAnchor', useTranslation('use-validation'));
+  assertRequired(props, 'href');
 
   return (
     <li className="nav-item">
