@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 /**
+ * @typedef (import('./Nav').NavbarNav) NavbarNav 
+ */
+
+/**
  * @typedef Props
  * 
  * @property {string|object} brand text or any inline-tag for brand
@@ -15,7 +19,7 @@ import { useTranslation } from 'react-i18next';
  */
 
 /**
- * 
+ * Main navigation menu
  * @param {Props} props 
  * @returns {object} rendered component
  */

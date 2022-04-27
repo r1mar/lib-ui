@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 /**
  * @typedef NavbarLink
  * 
- * @property {string} to url to intern link with react-router-dom
+ * @property {string} href url to external link
  * @property {boolean} [disabled=false]
  * @property {string} [className]
  * @property {object} [style]
@@ -15,15 +14,14 @@ import { useTranslation } from 'react-i18next';
 /**
  * Subitem of Nav-Component. Can navigate to external and internal links(react-router-dom)
  * @example
- * <NavbarLink to="/home">Home</NavbarLink>
+ * <NavbarAnchor href="http://localhost:3000">Home</NavbarLink>
  * @param {NavbarLink} props 
  * @returns 
  */
 export default function Link(props) {
   let className = `nav-link ${props.className || ''} ${props.active ? 'active' : ''} ${props.disabled ? 'disabled' : ''}`;
 
-  const { pathname } = useLocation();
-  if(pathname === props.to) {
+  if((window.location.origin + window.location.pathname) === props.href) {
     className += ' active';
   }
 
@@ -31,10 +29,10 @@ export default function Link(props) {
 
   return (
     <li className="nav-item">
-      <RouterLink className={className} to={props.to} style={props.style}>
+      <a className={className} href={props.href} style={props.style}>
         {props.children}
         {props.active && <span className="sr-only">{t('active-label')}</span>}
-      </RouterLink>
+      </a>
     </li>
   );
 

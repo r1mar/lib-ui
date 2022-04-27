@@ -1,6 +1,18 @@
 import React, { useState } from 'react';
 
-"nav-item nav-link"
+/**
+ * @example
+ * import { DropdownDevider, DropdownItem } from 'rm-lib-ui';
+ * 
+ * <Dropdown kind="secondary" caption="Dropdown">
+ *   <DropdownItem href="#">Action</DropdownItem>
+ *   <DropdownItem href="#">Another action</DropdownItem>
+ *   <DropdownDevider />
+ *   <DropdownItem href="#">Something else here</DropdownItem>
+ * </Dropdown>
+ * @param {Dropdown} props 
+ * @returns {object} rendered components
+ */
 
 export default function Dropdown(props) {
   const [expanded, setExpanded] = useState(false);

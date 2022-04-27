@@ -6,13 +6,22 @@ import React  from 'react';
 
 /**
  * @typedef NavbarNav
- * @property {Array<NavbarLink|NavbarDropDown>} children
+ * @property {Array<NavbarAnchor|NavbarLink|NavbarDropDown>} children
  * @property {string} className
  * @property {object} style
  */
 
 /**
  * Subitem of Navbar-Component. Not for direct use outside of Navbar-Component
+ * @example
+ * import { NavbarAnchor, NavbarDropDown, NavbarLink } from 'rm-lib-ui'.
+ * ...
+ * <NavbarNav>
+ *   <NavbarAnchor href="http://localhost:3000">Home</NavbarAnchor>
+ *   <NavbarLink to="#">Link</NavbarLink>
+ *   <NavbarDropdown caption="Dropdown" />
+ *   <NavbarLink to="#" disabled={true}>Disabled</NavbarLink>
+ * </NavbarNav>
  * @param {NavbarNav} props 
  * @returns {object} rendered component
  */
