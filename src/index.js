@@ -5,6 +5,7 @@ export { default as NavbarNav } from './components/Navbar/Nav';
 export { default as NavbarLink } from './components/Navbar/Link';
 export { default as NavbarAnchor } from './components/Navbar/Anchor';
 export { default as NavbarAction } from './components/Navbar/Action';
+export { default as NavbarText } from './components/Navbar/Text';
 
 export { default as InlineForm } from './components/InlineForm';
 export { default as Dropdown } from './components/Dropdown';
