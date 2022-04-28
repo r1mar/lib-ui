@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import useValidation from '../../hooks/useValidation';
 
 /**
  * @typedef NavbarAnchor
@@ -26,10 +25,11 @@ export default function Anchor(props) {
     className += ' active';
   }
 
-  const { t } = useTranslation('nav-anchor');
+  const { t } = useTranslation('rm-lib-ui');
 
-  const { assertRequired } = useValidation('NavbarAnchor', useTranslation('use-validation'));
-  assertRequired(props, 'href');
+  if(!props.href) {
+    throw new Error(t('missed-prop', {name: 'href', targetComponent: 'Anchor'}));
+  }
 
   return (
     <li className="nav-item">

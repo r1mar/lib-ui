@@ -1,15 +1,8 @@
 {
-  "navbar": {
-    "toggler-label": "Toggle navigation"
-  },
-  "nav-anchor": {
-    "active-label": "(current)"
-  },
-  "nav-link": {
-    "active-label": "(current)"
-  },
-  "use-validation": {
+  "rm-lib-ui": {
+    "active-label": "(current)",
+    "enum-fallback": "Value {{value}} is not allowed for property {{name}} of component {{targetComponent}}. The default value is used instead",
     "missed-prop": "required property {{name}} of component {{targetComponent}} not given",
-    "enum-fallback": "Value {{value}} is not allowed for property {{name}} of component {{targetComponent}}. The default value is used instead"
+    "toggler-label": "Toggle navigation"
   }
 }

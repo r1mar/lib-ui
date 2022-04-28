@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 /**
  * @example
- * import { DropdownDevider, DropdownItem } from 'rm-lib-ui';
+ * import { Dropdown, DropdownDevider, DropdownItem } from 'rm-lib-ui';
  * 
  * <Dropdown kind="secondary" caption="Dropdown">
  *   <DropdownItem href="#">Action</DropdownItem>

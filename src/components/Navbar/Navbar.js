@@ -1,6 +1,5 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import useValidation from '../../hooks/useValidation';
 
 /**
  * @typedef (import('./Nav').NavbarNav) NavbarNav 
@@ -21,46 +20,56 @@ import useValidation from '../../hooks/useValidation';
 
 /**
  * Main navigation menu
+ * @example
+ * import { Navbar, NavbarAnchor, NavbarDropDown, NavbarLink } from 'rm-lib-ui'.
+ * ...
+ * <Navbar brand="Navbar" color='dark' backgroundColor="light" breakpoint="lg" >
+ *   <NavbarNav>
+ *     <NavbarAnchor href="http://localhost:3000">Home</NavbarAnchor>
+ *     <NavbarLink to="#">Link</NavbarLink>
+ *     <NavbarDropdown caption="Dropdown" />
+ *     <NavbarLink to="#" disabled={true}>Disabled</NavbarLink>
+ *   </NavbarNav>
+ * </Navbar>
  * @param {Props} props 
  * @returns {object} rendered component
  */
 export default function Navbar(props) {
   const [collapsed, setCollapsed] = useState(true);
 
-  const { t } = useTranslation('navbar');
+  const { t } = useTranslation('rm-lib-ui');
 
-  const { checkEnumFallback } = useValidation('Navbar', useTranslation('use-validation'));
-
-  const colors = ['dark', 'light'];
-  const [ colorClass, colorError ] = checkEnumFallback(props, 'color', 'navbar', 'navbar-light', colors);
+  let colorClass = 'navbar-light';
+  if(props.color === 'light') {
+    colorClass = 'navbar-dark';
+  } else if(props.color && props.color !== 'dark') {
+      console.warn(t('enum-fallback', {value: props.color, name: 'color', targetComponent: 'Navbar'}));
+  }
   let navClass = `navbar ${colorClass} ${props.className || ''}`;
-  if(colorError) {
-    useMemo(() => {
-      console.warn(colorError);
-    }, [props.color]);
-}
 
   const togglerClass = `navbar-toggler ${collapsed ? "collapsed" : ""}`;
   const contentClass = `navbar-collapse collapse ${collapsed ? "" : "show"}`;
 
   // setting background
   const backgrounds = [ 'primary', 'secondary', 'success', 'warning', 'danger', 'info', 'dark', 'light', 'white' ];
-  const [ bgClass, bgError ] = checkEnumFallback(props, 'backgroundColor', 'bg', 'bg-light', backgrounds);
-  navClass += ` ${bgClass}`;
-  if(bgError) {
-      useMemo(() => {
-        console.warn(bgError);
-      }, [props.backgroundColor]);
+  if(props.backgroundColor && backgrounds.indexOf(props.backgroundColor) >= 0) {
+    navClass += ` bg-${props.backgroundColor}`;
+  } else {
+    if(props.backgroundColor) {
+      console.warn('enum-fallback', {value: props.backgroundColor, name: 'backgroundColor', targetComponent: 'Navbar'});
+    }
+    navClass += ' bg-light';
   }
 
   // setting breakpoints
   const  breakpoints = ['sm', 'md', 'lg', 'xl'];
-  const [ bpClass, bpError ] = checkEnumFallback(props, 'breakpoint', 'navbar-expand', 'navbar-expand-lg', breakpoints);
-  navClass += ` ${bpClass}`;
-  if(bpError) {
-    useMemo(() => {
-      console.warn(bpError);
-    }, [props.breakpoint]);
+  if(props.breakpoint && breakpoints.indexOf(props.breakpoint) >= 0) {
+    navClass += ` navbar-expand-${props.breakpoint}`;
+  } else {
+    if(props.breakpoint) {
+      console.warn('enum-fallback', {value: props.breakpoint, name: 'breakpoint', targetComponent: 'Navbar'});
+    }
+    navClass += ' navbar-expand-light';
   }
 
   // setting positions

@@ -1,14 +1,8 @@
 {
-  "navbar": {
+  "rm-lib-ui": {
+    "active-label": "(aktuell)",
+    "enum-fallback": "Wert {{value}} ist nicht zulässig für die Eigenschaft {{name}} der Komponente {{targetComponent}}. Es wird stattdessen der Standardwert verwendet",
+    "missed-prop": "Erforderliche Eingenschaft {{name}} bei der {{targetComponent}} Komponente nicht angegeben",
     "toggler-label": "Navigation umschalten"
-  },
-  "nav-anchor": {
-    "active-label": "(aktuell)"
-  },
-  "nav-link": {
-    "active-label": "(aktuell)"
-  },
-  "use-validation": {
-    "missed-prop": "Erforderliche Eingenschaft {{name}} bei der {{targetComponent}} Komponente nicht angegeben"
   }
 }

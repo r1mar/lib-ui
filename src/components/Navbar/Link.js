@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import useValidation from '../../hooks/useValidation';
 
 /**
  * @typedef NavbarLink
@@ -30,10 +29,11 @@ export default function Link(props) {
     className += ' active';
   }
 
-  const { t } = useTranslation('nav-link');
+  const { t } = useTranslation('rm-lib-ui');
 
-  const { assertRequired } = useValidation('NavbarLink', useTranslation('use-validation'));
-  assertRequired(props, 'to');
+  if(!props.to) {
+    throw new Error(t('missed-prop', {name: 'to', targetComponent: 'Anchor'}));
+  }
 
   return (
     <li className="nav-item">
