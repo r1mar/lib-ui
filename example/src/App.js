@@ -1,5 +1,6 @@
 import 'bootstrap-scss/bootstrap.scss';
-import { InlineForm, i18n, Navbar, NavbarAction, NavbarAnchor, NavbarNav, NavbarDropdown, NavbarLink } from 'rm-lib-ui';
+import { InlineForm, i18n, Navbar, NavbarAction, NavbarAnchor, NavbarNav, NavbarDropdown, 
+  NavbarLink } from 'rm-lib-ui';
 
 import { I18nextProvider } from "react-i18next";
 
