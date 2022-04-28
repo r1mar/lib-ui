@@ -2,11 +2,14 @@ import React  from 'react';
 
 /**
  * @typedef (import('./Link').NavbarLink) NavbarLink
+ * @typedef (import('./Anchor').Anchor) NavbarAnchor
+ * @typedef (import('./Dropdown').Dropdown) NavbarDropdown
+ * @typedef (import('./Action').Action) NavbarAction
  */
 
 /**
  * @typedef NavbarNav
- * @property {Array<NavbarAnchor|NavbarLink|NavbarDropDown>} children
+ * @property {Array<NavbarAction,NavbarAnchor|NavbarLink|NavbarDropDown>} children
  * @property {string} className
  * @property {object} style
  */

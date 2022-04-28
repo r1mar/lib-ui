@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 
 /**
+ * @typedef Dropdown
+ * @property {string} [caption]
+ * @property {'primary'|'secondary'|'success'|'warning'|'danger'|'info'|'dark'|'light'|'link'} [kind]
+ * @property {string} [className]
+ * @property {object} [style]
+ * @property {Array<DropdownHeader|DropdownItem|DropdownDevider>} children
+ */
+
+/**
  * @example
  * import { Dropdown, DropdownDevider, DropdownItem } from 'rm-lib-ui';
  * 
@@ -19,9 +28,9 @@ export default function Dropdown(props) {
 
   const className = `dropdown ${expanded ? 'show' : ''} ${props.className}`;
 
-  const togglerKinds = ['secondary'];
+  const togglerKinds = ['primary', 'secondary', 'success', 'warning', 'danger', 'info', 'dark', 'light', 'link'];
   let togglerKindClass;
-  if(props.kind && togglerKinds.indexOf(props.kind)) {
+  if(props.kind && togglerKinds.indexOf(props.kind) >= 0) {
     togglerKindClass = `btn btn-${props.kind}`
   }
 
@@ -32,11 +41,14 @@ export default function Dropdown(props) {
     "data-toggle": "dropdown",
     "aria-haspopup": true,
     "aria-expanded": expanded,
-    onClick: () => setExpanded(!expanded)
+    onClick: (e) => {
+      e.preventDefault();
+      setExpanded(!expanded);
+    }
   };
   if(props.togglerAs === 'a') {
     toggler = (
-      <a {...togglerProps} role="button" href="#">
+      <a {...togglerProps} role="button" href="/toggler">
         {props.caption}
       </a>
     );

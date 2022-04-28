@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 /**
  * @typedef (import('./Nav').NavbarNav) NavbarNav 
+ * @typedef (import('../InlineForm').InlineForm) InlineForm
  */
 
 /**

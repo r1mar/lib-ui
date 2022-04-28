@@ -25,8 +25,10 @@ export default function Link(props) {
   let className = `nav-link ${props.className || ''} ${props.active ? 'active' : ''} ${props.disabled ? 'disabled' : ''}`;
 
   const { pathname } = useLocation();
+  let active = false;
   if(pathname === props.to) {
     className += ' active';
+    active = true;
   }
 
   const { t } = useTranslation('rm-lib-ui');
@@ -39,7 +41,7 @@ export default function Link(props) {
     <li className="nav-item">
       <RouterLink className={className} to={props.to} style={props.style}>
         {props.children}
-        {props.active && <span className="sr-only">{t('active-label')}</span>}
+        {active && <span className="sr-only">{t('active-label')}</span>}
       </RouterLink>
     </li>
   );

@@ -19,10 +19,12 @@ import { useTranslation } from 'react-i18next';
  * @returns 
  */
 export default function Anchor(props) {
-  let className = `nav-link ${props.className || ''} ${props.active ? 'active' : ''} ${props.disabled ? 'disabled' : ''}`;
+  let className = `nav-link ${props.className || ''} ${props.disabled ? 'disabled' : ''}`;
 
+  let active = false;
   if(window.location.pathname === props.href) {
     className += ' active';
+    active = true;
   }
 
   const { t } = useTranslation('rm-lib-ui');
@@ -35,7 +37,7 @@ export default function Anchor(props) {
     <li className="nav-item">
       <a className={className} href={props.href} style={props.style}>
         {props.children}
-        {props.active && <span className="sr-only">{t('active-label')}</span>}
+        {active && <span className="sr-only">{t('active-label')}</span>}
       </a>
     </li>
   );
