@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 /**
- * @typedef NavbarAnchor
+ * @typedef DropdownAnchor
  * 
  * @property {string} href url to external link
  * @property {boolean} [disabled=false]
@@ -14,14 +14,14 @@ import { useTranslation } from 'react-i18next';
 /**
  * Subitem of Nav-Component. Can navigate to external and internal links(react-router-dom)
  * @example
- * <Navbar caption="hit me">
- *   <NavbarAnchor href="https://github.com">Home</NavbarAnchor>
- * </Navbar>
- * @param {NavbarAnchor} props 
+ * <Dropdown caption="hit me">
+ *   <DropdownAnchor href="https://github.com">Home</DropdownAnchor>
+ * </Dropdown>
+ * @param {DropdownAnchor} props 
  * @returns 
  */
 export default function Anchor(props) {
-  let className = `nav-link ${props.className || ''} ${props.disabled ? 'disabled' : ''}`;
+  let className = `dropdown-item ${props.className || ''} ${props.disabled ? 'disabled' : ''}`;
 
   let active = false;
   if(window.location.pathname === props.href) {
@@ -32,7 +32,7 @@ export default function Anchor(props) {
   const { t } = useTranslation('rm-lib-ui');
 
   if(!props.href) {
-    throw new Error(t('missed-prop', {name: 'href', targetComponent: 'NavbarAnchor'}));
+    throw new Error(t('missed-prop', {name: 'href', targetComponent: 'DropdownAnchor'}));
   }
 
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import InnerDropdown from '../Dropdown';
+import InnerDropdown from '../Dropdown/Dropdown';
 
 /**
  * @typedef Dropdown
