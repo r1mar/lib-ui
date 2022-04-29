@@ -3,6 +3,7 @@ import external from 'rollup-plugin-peer-deps-external';
 import del from 'rollup-plugin-delete';
 import pkg from './package.json';
 import copy from 'rollup-plugin-copy';
+import json from '@rollup/plugin-json';
 
 const config = {
 	input: pkg.source,
@@ -30,7 +31,8 @@ const config = {
         src: "src/i18n",
 				dest : "dist"
 			}]
-    })
+    }),
+		json()
 	],
 	external: Object.keys(pkg.peerDependencies || {}),
 };

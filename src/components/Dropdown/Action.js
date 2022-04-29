@@ -8,9 +8,9 @@ import { useTranslation } from 'react-i18next';
  */
 
 /**
- * @typedef NavbarAction
+ * @typedef DropdownAction
  * 
- * @property {click} onClick url to external link
+ * @property {click} onClick click event handler
  * @property {boolean} [active=false]
  * @property {boolean} [disabled=false]
  * @property {string} [className]
@@ -19,21 +19,23 @@ import { useTranslation } from 'react-i18next';
  */
 
 /**
- * Subitem of Nav-Component. Can navigate to external and internal links(react-router-dom)
+ * Subitem of Dropdown-Component. Can navigate to external and internal links(react-router-dom)
  * @example
- * <Navbar caption="hit me">
- *   <NavbarAction href="https://github.com">Home</NavbarAction>
- * </Navbar>
- * @param {NavbarAction} props 
+ * import { Dropdown, DropdownAction } from 'rm-lib-ui';
+ * ...
+ * <Dropdown caption="hit me">
+ *   <DropdownAction onClick={onClick}>call Home</DropdownAction>
+ * </DropDown>
+ * @param {DropdownAction} props 
  * @returns 
  */
 export default function Action(props) {
-  let className = `nav-link ${props.className || ''} ${props.active ? 'active' : ''} ${props.disabled ? 'disabled' : ''}`;
+  let className = `dropdown-item ${props.className || ''} ${props.active ? 'active' : ''} ${props.disabled ? 'disabled' : ''}`;
 
   const { t } = useTranslation('rm-lib-ui');
 
   if(!props.onClick) {
-    throw new Error(t('missed-prop', {name: 'onClick', targetComponent: 'NavbarAction'}));
+    throw new Error(t('missed-prop', {name: 'onClick', targetComponent: 'DropdownAction'}));
   }
 
   const onClick = (e) => {

@@ -1,7 +1,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import resources_de from 'rm-lib-ui/dist/i18n/resources_de.json';
-import resources_en from 'rm-lib-ui/dist/i18n/resources_en.json';
+import resources_de from './resources_de.json';
+import resources_en from './resources_en.json';
 
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next

@@ -11,13 +11,13 @@ import React, { useState } from 'react';
 
 /**
  * @example
- * import { Dropdown, DropdownDevider, DropdownItem } from 'rm-lib-ui';
+ * import { Dropdown, DropdownDevider, DropdownAction, DropdownAnchor, DropdownLink } from 'rm-lib-ui';
  * 
  * <Dropdown kind="secondary" caption="Dropdown">
- *   <DropdownItem href="#">Action</DropdownItem>
- *   <DropdownItem href="#">Another action</DropdownItem>
+ *   <DropdownAnchor href="home1">Action</DropdownItem>
+ *   <DropdownLink to="/home2">Another action</DropdownItem>
  *   <DropdownDevider />
- *   <DropdownItem href="#">Something else here</DropdownItem>
+ *   <DropdownAction onClick={onClick}>Something else here</DropdownItem>
  * </Dropdown>
  * @param {Dropdown} props 
  * @returns {object} rendered components
@@ -65,10 +65,8 @@ export default function Dropdown(props) {
     <>
       {toggler}
       <div className={contentClassName} aria-labelledby="navbarDropdown">
-        <a className="dropdown-item" href="#">Action</a>
-        <a className="dropdown-item" href="#">Another action</a>
+        {props.children}
         <div className="dropdown-divider"></div>
-        <a className="dropdown-item" href="#">Something else here</a>
       </div>
     </>);
 

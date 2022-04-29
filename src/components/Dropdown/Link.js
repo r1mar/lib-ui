@@ -3,7 +3,7 @@ import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 /**
- * @typedef NavbarLink
+ * @typedef DropdownLink
  * 
  * @property {string} to url to intern link with react-router-dom
  * @property {boolean} [disabled=false]
@@ -15,10 +15,12 @@ import { useTranslation } from 'react-i18next';
 /**
  * Subitem of Nav-Component. Can navigate to external and internal links(react-router-dom)
  * @example
- * import { NavbarLink } from 'rm-lib-ui';
+ * import { Dropdown, DropdownLink } from 'rm-lib-ui';
  * ...
- * <NavbarLink to="/home">Home</NavbarLink>
- * @param {NavbarLink} props 
+ * <Dropdown>
+ *   <DropdownLink to="/home">Home</DropdownLink>
+ * </Dropdown>
+ * @param {DropdownLink} props 
  * @returns 
  */
 export default function Link(props) {
@@ -34,7 +36,7 @@ export default function Link(props) {
   const { t } = useTranslation('rm-lib-ui');
 
   if(!props.to) {
-    throw new Error(t('missed-prop', {name: 'to', targetComponent: 'NavbarLink'}));
+    throw new Error(t('missed-prop', {name: 'to', targetComponent: 'DropdownAnchor'}));
   }
 
   return (
