@@ -19,7 +19,7 @@ import { useTranslation } from 'react-i18next';
  */
 
 /**
- * Subitem of Nav-Component. Can navigate to external and internal links(react-router-dom)
+ * Subitem of Dropdown-Component. Can navigate to external and internal links(react-router-dom)
  * @example
  * import { Dropdown, DropdownAction } from 'rm-lib-ui';
  * ...

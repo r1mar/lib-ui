@@ -1,6 +1,6 @@
 import 'bootstrap-scss/bootstrap.scss';
 import { InlineForm, i18n, Navbar, NavbarAction, NavbarAnchor, NavbarNav, NavbarDropdown, 
-  NavbarLink, DropdownAction, DropdownAnchor } from 'rm-lib-ui';
+  NavbarLink, DropdownAction, DropdownAnchor, DropdownHeader } from 'rm-lib-ui';
 
 import { I18nextProvider } from "react-i18next";
 
@@ -19,6 +19,7 @@ function App() {
           <NavbarAction onClick={() => setNavbarActionActive(!navbarActionActive)} active={navbarActionActive}>Action</NavbarAction>
           <NavbarAnchor href="/">Home</NavbarAnchor>
           <NavbarDropdown caption="Dropdown">
+            <DropdownHeader>Header</DropdownHeader>
             <DropdownAction onClick={() => setDropdownActionActive(!dropdownActionActive)} active={dropdownActionActive}>Action</DropdownAction>
             <DropdownAnchor href="/">Home</DropdownAnchor>
             <DropdownAction onClick={()=>{}} disabled={true} />
