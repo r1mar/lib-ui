@@ -4,6 +4,7 @@ import InnerDropdown from '../Dropdown/Dropdown';
 /**
  * @typedef Dropdown
  * @property {string} [caption]
+ * @property {string} [id]
  * @property {string} [className]
  * @property {object} [style]
  * @property {Array<DropdownHeader|DropdownItem|DropdownDevider>} children
@@ -24,7 +25,7 @@ import InnerDropdown from '../Dropdown/Dropdown';
  */
 export default function Dropdown(props) {
   return (
-    <InnerDropdown {...props} className="nav-item" togglerClassName="nav-link" as="li" togglerAs="a">
+    <InnerDropdown id={props.id} {...props} className="nav-item" togglerClassName="nav-link" as="li" togglerAs="a">
       
     </InnerDropdown>
   );

@@ -1,10 +1,23 @@
 import React  from 'react';
 
+/**
+ * @typedef InlineForm
+ * 
+ * @property {string} [id]
+ * @property {string} [className]
+ * @property {string} [style]
+ */
+/**
+ * 
+ * @param {InlineForm} props 
+ * @returns {object} rendered component
+ */
 export default function InlineForm(props) {
+  const className = `form-inline ${props.className || ''}`;
+
   return (
-    <form className="form-inline my-2 my-lg-0">
-      <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-      <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <form className={className} style={props.style} id={props.id}>
+      {props.children}
     </form>
   );
 }

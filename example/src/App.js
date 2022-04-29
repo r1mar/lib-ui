@@ -1,6 +1,6 @@
 import 'bootstrap-scss/bootstrap.scss';
 import { InlineForm, i18n, Navbar, NavbarAction, NavbarAnchor, NavbarNav, NavbarDropdown, 
-  NavbarLink, DropdownAction, DropdownAnchor, DropdownHeader } from 'rm-lib-ui';
+  NavbarLink, DropdownAction, DropdownAnchor, DropdownHeader, DropdownDivider, Textbox, Button } from 'rm-lib-ui';
 
 import { I18nextProvider } from "react-i18next";
 
@@ -22,11 +22,15 @@ function App() {
             <DropdownHeader>Header</DropdownHeader>
             <DropdownAction onClick={() => setDropdownActionActive(!dropdownActionActive)} active={dropdownActionActive}>Action</DropdownAction>
             <DropdownAnchor href="/">Home</DropdownAnchor>
-            <DropdownAction onClick={()=>{}} disabled={true} />
+            <DropdownDivider />
+            <DropdownAction onClick={()=>{}} disabled={true}>Action</DropdownAction>
           </NavbarDropdown>
           <NavbarLink to="/home2" disabled={true}>Disabled</NavbarLink>
         </NavbarNav>
-        <InlineForm />
+        <InlineForm className="my-2 my-lg-0">
+          <Textbox className="mr-sm-2" type="search" placeholder="Search" ariaLabel="Search" />
+          <Button className="my-2 my-sm-0" type="submit" outlineColor="success" onClick={()=>{}}>Search</Button>
+        </InlineForm>
       </Navbar>
       <Outlet />
     </I18nextProvider>

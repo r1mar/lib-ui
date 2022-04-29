@@ -10,6 +10,7 @@ import React  from 'react';
 /**
  * @typedef NavbarNav
  * @property {Array<NavbarAction,NavbarAnchor|NavbarLink|NavbarDropDown>} children
+ * @property {string} [id]
  * @property {string} className
  * @property {object} style
  */
@@ -33,7 +34,7 @@ export default function Nav(props) {
   const className = `navbar-nav mr-auto ${props.className || ''}`;
 
   return (
-    <ul className={className} style={props.style}>
+    <ul id={props.id} className={className} style={props.style}>
       {props.children}
     </ul>
   );

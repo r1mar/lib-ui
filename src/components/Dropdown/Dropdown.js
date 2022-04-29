@@ -4,6 +4,7 @@ import React, { useState } from 'react';
  * @typedef Dropdown
  * @property {string} [caption]
  * @property {'primary'|'secondary'|'success'|'warning'|'danger'|'info'|'dark'|'light'|'link'} [kind]
+ * @property {string} [id]
  * @property {string} [className]
  * @property {object} [style]
  * @property {Array<DropdownHeader|DropdownItem|DropdownDevider>} children
@@ -17,7 +18,7 @@ import React, { useState } from 'react';
  *   <DropdownAnchor href="home1">Action</DropdownItem>
  *   <DropdownLink to="/home2">Another action</DropdownItem>
  *   <DropdownDevider />
- *   <DropdownAction onClick={onClick}>Something else here</DropdownItem>
+ *   <DropdownAction onClick={onClick}>Something else here</DropdownAction>
  * </Dropdown>
  * @param {Dropdown} props 
  * @returns {object} rendered components
@@ -66,19 +67,18 @@ export default function Dropdown(props) {
       {toggler}
       <div className={contentClassName} aria-labelledby="navbarDropdown">
         {props.children}
-        <div className="dropdown-divider"></div>
       </div>
     </>);
 
   if (props.as === 'li') {
     return (
-      <li className={className} style={props.style}>
+      <li id={props.id} className={className} style={props.style}>
         {content.props.children}
       </li>
     );
   }
   return (
-    <div className={className} style={props.style}>
+    <div id={props.id} className={className} style={props.style}>
       {content.props.children}
     </div>
   );

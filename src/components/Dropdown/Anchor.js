@@ -6,13 +6,14 @@ import { useTranslation } from 'react-i18next';
  * 
  * @property {string} href url to external link
  * @property {boolean} [disabled=false]
+ * @property {string} [id]
  * @property {string} [className]
  * @property {object} [style]
  * @property {string|object} children any inline tag or text
  */
 
 /**
- * Subitem of Dropdown-Component. Can navigate to external and internal links(react-router-dom)
+ * Subitem of Dropdown-Component. Can navigate to external links
  * @example
  * <Dropdown caption="hit me">
  *   <DropdownAnchor href="https://github.com">Home</DropdownAnchor>
@@ -24,24 +25,22 @@ export default function Anchor(props) {
   let className = `dropdown-item ${props.className || ''} ${props.disabled ? 'disabled' : ''}`;
 
   let active = false;
-  if(window.location.pathname === props.href) {
+  if (window.location.pathname === props.href) {
     className += ' active';
     active = true;
   }
 
   const { t } = useTranslation('rm-lib-ui');
 
-  if(!props.href) {
-    throw new Error(t('missed-prop', {name: 'href', targetComponent: 'DropdownAnchor'}));
+  if (!props.href) {
+    throw new Error(t('missed-prop', { name: 'href', targetComponent: 'DropdownAnchor' }));
   }
 
   return (
-    <li className="nav-item">
-      <a className={className} href={props.href} style={props.style}>
-        {props.children}
-        {active && <span className="sr-only">{t('active-label')}</span>}
-      </a>
-    </li>
+    <a id={props.id} className={className} href={props.href} style={props.style}>
+      {props.children}
+      {active && <span className="sr-only">{t('active-label')}</span>}
+    </a>
   );
 
 }

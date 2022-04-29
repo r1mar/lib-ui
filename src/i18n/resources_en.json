@@ -3,6 +3,7 @@
     "active-label": "(current)",
     "enum-fallback": "Value {{value}} is not allowed for property {{name}} of component {{targetComponent}}. The default value is used instead",
     "missed-prop": "required property {{name}} of component {{targetComponent}} not given",
-    "toggler-label": "Toggle navigation"
+    "toggler-label": "Toggle navigation",
+    "wrong-enum-value": "Value {{value}} is not allowed for property {{name}} of component {{targetComponent}}"
   }
 }
