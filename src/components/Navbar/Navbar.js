@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 /**
  * @typedef (import('./Nav').NavbarNav) NavbarNav 
  * @typedef (import('../InlineForm').InlineForm) InlineForm
+ * @typedef (import('./Text').Text) NavbarText
  */
 
 /**
@@ -14,9 +15,10 @@ import { useTranslation } from 'react-i18next';
  * @property {'primary'|'secondary'|'success'|'warning'|'danger'|'info'|'dark'|'light'|'white'} [backgroundColor='light'] 
  * @property {'sm'|'md'|'lg'|'xl'} [breakpoint='lg']
  * @property {'fixed-top'|'fixed-bottom'|'sticky-top'} [position]
+ * @property {string} [id]
  * @property {string} [className]
  * @property {object} [style]
- * @property {Array<InlineForm|NavbarNav>} children
+ * @property {Array<InlineForm|NavbarNav|NavbarText>} children
  */
 
 /**
@@ -86,7 +88,7 @@ export default function Navbar(props) {
   }
 
   return (
-    <nav className={navClass} style={props.style}>
+    <nav id={props.id} className={navClass} style={props.style}>
       {props.brand && <a className="navbar-brand" href="/">{props.brand}</a>}
       <button className={togglerClass} type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
         aria-expanded={!collapsed} aria-label={t('toggler-label')} onClick={toggleCollaps}>

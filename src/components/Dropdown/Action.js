@@ -13,13 +13,14 @@ import { useTranslation } from 'react-i18next';
  * @property {click} onClick click event handler
  * @property {boolean} [active=false]
  * @property {boolean} [disabled=false]
+ * @property {string} [id]
  * @property {string} [className]
  * @property {object} [style]
  * @property {string|object} children any inline tag or text
  */
 
 /**
- * Subitem of Dropdown-Component. Can navigate to external and internal links(react-router-dom)
+ * Subitem of Dropdown-Component.
  * @example
  * import { Dropdown, DropdownAction } from 'rm-lib-ui';
  * ...
@@ -34,8 +35,8 @@ export default function Action(props) {
 
   const { t } = useTranslation('rm-lib-ui');
 
-  if(!props.onClick) {
-    throw new Error(t('missed-prop', {name: 'onClick', targetComponent: 'DropdownAction'}));
+  if (!props.onClick) {
+    throw new Error(t('missed-prop', { name: 'onClick', targetComponent: 'DropdownAction' }));
   }
 
   const onClick = (e) => {
@@ -44,12 +45,10 @@ export default function Action(props) {
   };
 
   return (
-    <li className="nav-item">
-      <a href="/action" className={className} onClick={onClick} style={props.style}>
-        {props.children}
-        {props.active && <span className="sr-only">{t('active-label')}</span>}
-      </a>
-    </li>
+    <a href="/action" id={props.id} className={className} onClick={onClick} style={props.style}>
+      {props.children}
+      {props.active && <span className="sr-only">{t('active-label')}</span>}
+    </a>
   );
 
 }

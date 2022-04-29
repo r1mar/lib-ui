@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
  * 
  * @property {string} href url to external link
  * @property {boolean} [disabled=false]
+ * @property {string} [id]
  * @property {string} [className]
  * @property {object} [style]
  * @property {string|object} children any inline tag or text
@@ -36,7 +37,7 @@ export default function Anchor(props) {
   }
 
   return (
-    <li className="nav-item">
+    <li id={props.id} className="nav-item">
       <a className={className} href={props.href} style={props.style}>
         {props.children}
         {active && <span className="sr-only">{t('active-label')}</span>}

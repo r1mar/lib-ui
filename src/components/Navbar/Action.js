@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
  * @property {click} onClick url to external link
  * @property {boolean} [active=false]
  * @property {boolean} [disabled=false]
+ * @property {string} [id]
  * @property {string} [className]
  * @property {object} [style]
  * @property {string|object} children any inline tag or text
@@ -42,7 +43,7 @@ export default function Action(props) {
   };
 
   return (
-    <li className="nav-item">
+    <li id={props.id} className="nav-item">
       <a href="/action" className={className} onClick={onClick} style={props.style}>
         {props.children}
         {props.active && <span className="sr-only">{t('active-label')}</span>}

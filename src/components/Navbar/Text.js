@@ -9,6 +9,7 @@ import React from 'react';
  * </Navbar>
  * @param {object} props
  * @param {string} props.children 
+ * @property {string} [id]
  * @property {string} [props.className]
  * @property {object} [props.style]
  * @returns 
@@ -17,7 +18,7 @@ export default function Text(props) {
   const className = `navbar-text ${props.className}`;
   
   return (
-    <span className={className} style={props.style}>
+    <span id={props.id} className={className} style={props.style}>
       {props.children}
     </span>
   );
