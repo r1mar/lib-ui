@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 /**
+ * Subitem of {@link Dropdown}-Component
  * @typedef DropdownHeader
  * 
  * @property {1|2|3|4|5|6} [importance=6]
@@ -18,7 +19,7 @@ import { useTranslation } from 'react-i18next';
  *   <DropdownHeader>Header in Dropdown</DropdownHeader>
  * </Dropdown>
  * @param {DropdownHeader} props 
- * @returns 
+ * @returns {object} rendered component
  */
 export default function Header(props) {
   const attr = {

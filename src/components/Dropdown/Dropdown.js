@@ -7,7 +7,7 @@ import React, { useState } from 'react';
  * @property {string} [id]
  * @property {string} [className]
  * @property {object} [style]
- * @property {Array<DropdownHeader|DropdownItem|DropdownDevider>} children
+ * @property {Array<DropdownHeader|DropdownAction|DropdownAnchor|DropdownDivider|DropdownLink>} children
  */
 
 /**

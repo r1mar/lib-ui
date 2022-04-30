@@ -2,13 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 /**
- * @typedef (import('./Nav').NavbarNav) NavbarNav 
- * @typedef (import('../InlineForm').InlineForm) InlineForm
- * @typedef (import('./Text').Text) NavbarText
- */
-
-/**
- * @typedef Props
+ * @typedef Navbar
  * 
  * @property {string|object} brand text or any inline-tag for brand
  * @property {'dark'|'light'} [color='dark'] font color
@@ -34,7 +28,7 @@ import { useTranslation } from 'react-i18next';
  *     <NavbarLink to="#" disabled={true}>Disabled</NavbarLink>
  *   </NavbarNav>
  * </Navbar>
- * @param {Props} props 
+ * @param {Navbar} props 
  * @returns {object} rendered component
  */
 export default function Navbar(props) {

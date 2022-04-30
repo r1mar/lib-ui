@@ -1,6 +1,7 @@
 import React from 'react';
 
 /**
+ * Subitem of {@link Dropdown}-Component
  * @typedef DropdownDivider
  * 
  * @property {string} [id]
@@ -16,7 +17,7 @@ import React from 'react';
  *   <DropdownDivider />
  * </Dropdown>
  * @param {DropdownDivider} props 
- * @returns 
+ * @returns {object} rendered component
  */
 export default function Divider(props) {
   const attr = {

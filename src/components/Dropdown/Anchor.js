@@ -2,6 +2,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 /**
+ * Can navigate to external links
+ * Subitem of {@link Dropdown}-Component
  * @typedef DropdownAnchor
  * 
  * @property {string} href url to external link
@@ -10,16 +12,16 @@ import { useTranslation } from 'react-i18next';
  * @property {string} [className]
  * @property {object} [style]
  * @property {string|object} children any inline tag or text
- */
-
-/**
- * Subitem of Dropdown-Component. Can navigate to external links
+ *  
  * @example
  * <Dropdown caption="hit me">
  *   <DropdownAnchor href="https://github.com">Home</DropdownAnchor>
  * </Dropdown>
+ */
+
+/**
  * @param {DropdownAnchor} props 
- * @returns 
+ * @returns {object} rendered component
  */
 export default function Anchor(props) {
   let className = `dropdown-item ${props.className || ''} ${props.disabled ? 'disabled' : ''}`;
