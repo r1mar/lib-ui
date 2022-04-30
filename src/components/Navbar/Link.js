@@ -20,7 +20,7 @@ import { useTranslation } from 'react-i18next';
  * ...
  * <NavbarLink to="/home">Home</NavbarLink>
  * @param {NavbarLink} props 
- * @returns 
+ * @returns {object} rendered components
  */
 export default function Link(props) {
   let className = `nav-link ${props.className || ''} ${props.active ? 'active' : ''} ${props.disabled ? 'disabled' : ''}`;

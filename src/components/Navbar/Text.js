@@ -12,7 +12,7 @@ import React from 'react';
  * @property {string} [id]
  * @property {string} [props.className]
  * @property {object} [props.style]
- * @returns 
+ * @returns {object} rendered components
  */
 export default function Text(props) {
   const className = `navbar-text ${props.className}`;

@@ -2,24 +2,24 @@ import React from 'react';
 import InnerDropdown from '../Dropdown/Dropdown';
 
 /**
- * @typedef Dropdown
+ * @typedef NavbarDropdown
  * @property {string} [caption]
  * @property {string} [id]
  * @property {string} [className]
  * @property {object} [style]
- * @property {Array<DropdownHeader|DropdownItem|DropdownDevider>} children
+ * @property {Array<DropdownHeader|DropdownAction|DropdownAnchor|DropdownDivider|DropdownLink>} children
  */
 
 /**
  * @example
- * import { Dropdown, DropdownDevider, DropdownItem } from 'rm-lib-ui';
- * 
- * <Dropdown kind="secondary" caption="Dropdown">
- *   <DropdownItem href="#">Action</DropdownItem>
- *   <DropdownItem href="#">Another action</DropdownItem>
- *   <DropdownDevider />
- *   <DropdownItem href="#">Something else here</DropdownItem>
- * </Dropdown>
+ * import { Navbar, NavbarDropdown, NavbarNav, DropdownAnchor } from 'rm-lib-ui';
+ * <Navbar>
+ *   <NavbarNav>
+ *     <NavbarDropdown caption="Dropdown">
+ *       <DropdownAnchor href="#">Anchor</DropdownAnchor>
+ *     </NavbarDropdown>
+ *   </NavbarNav>
+ * </Navbar>
  * @param {Dropdown} props 
  * @returns {object} rendered components
  */

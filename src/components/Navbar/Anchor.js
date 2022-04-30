@@ -19,7 +19,7 @@ import { useTranslation } from 'react-i18next';
  *   <NavbarAnchor href="https://github.com">Home</NavbarAnchor>
  * </Navbar>
  * @param {NavbarAnchor} props 
- * @returns 
+ * @returns  {object} rendered component
  */
 export default function Anchor(props) {
   let className = `nav-link ${props.className || ''} ${props.disabled ? 'disabled' : ''}`;

@@ -2,33 +2,29 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 /**
- * @callback click
- * @param {object} e 
- * @returns {void}
- */
-
-/**
+ * Triggers a callback when you click on it.
+ * Subitem of {@link Dropdown}-Component.
  * @typedef DropdownAction
  * 
- * @property {click} onClick click event handler
- * @property {boolean} [active=false]
+ * @property {function} onClick click event handler
+ * @property {boolean} [active=false] 
  * @property {boolean} [disabled=false]
  * @property {string} [id]
  * @property {string} [className]
  * @property {object} [style]
- * @property {string|object} children any inline tag or text
- */
-
-/**
- * Subitem of Dropdown-Component.
+ * @property {*} children any inline tag or text
+ *
  * @example
  * import { Dropdown, DropdownAction } from 'rm-lib-ui';
  * ...
  * <Dropdown caption="hit me">
  *   <DropdownAction onClick={onClick}>call Home</DropdownAction>
  * </DropDown>
+ */
+
+/**
  * @param {DropdownAction} props 
- * @returns 
+ * @returns {React.ReactElement} rendered components
  */
 export default function Action(props) {
   let className = `dropdown-item ${props.className || ''} ${props.active ? 'active' : ''} ${props.disabled ? 'disabled' : ''}`;

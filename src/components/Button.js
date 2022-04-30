@@ -2,15 +2,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 /**
- * @callback onClick
- * @param {object} e 
- * @returns 
- */
-
-/**
  * @typedef Button
  * 
- * @property {onClick} [onClick]
+ * @property {Function} [onClick]
  * @property {button|reset|submit} [type='submit']
  * @property {primary|secondary|success|warning|danger|info|light|dark|link} [color] Either color or outline color should be specified 
  * @property {primary|secondary|success|warning|danger|info|light|dark} [outlineColor] Either color or outline color should be specified 

@@ -3,6 +3,7 @@ import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 /**
+ * Subitem of {@link Dropdown}-Component
  * @typedef DropdownLink
  * 
  * @property {string} to url to intern link with react-router-dom
@@ -22,7 +23,7 @@ import { useTranslation } from 'react-i18next';
  *   <DropdownLink to="/home">Home</DropdownLink>
  * </Dropdown>
  * @param {DropdownLink} props 
- * @returns 
+ * @returns {object} rendered component
  */
 export default function Link(props) {
   let className = `dropdown-item ${props.className || ''} ${props.active ? 'active' : ''} ${props.disabled ? 'disabled' : ''}`;

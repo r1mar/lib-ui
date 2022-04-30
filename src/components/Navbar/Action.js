@@ -2,15 +2,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 /**
- * @callback click
- * @param {object} e 
- * @returns {void}
- */
-
-/**
  * @typedef NavbarAction
  * 
- * @property {click} onClick url to external link
+ * @property {function} onClick url to external link
  * @property {boolean} [active=false]
  * @property {boolean} [disabled=false]
  * @property {string} [id]
@@ -20,13 +14,13 @@ import { useTranslation } from 'react-i18next';
  */
 
 /**
- * Subitem of Nav-Component. Can navigate to external and internal links(react-router-dom)
+ * Subitem of {NavbarNav}-Component. Can navigate to external and internal links(react-router-dom)
  * @example
  * <Navbar caption="hit me">
  *   <NavbarAction href="https://github.com">Home</NavbarAction>
  * </Navbar>
  * @param {NavbarAction} props 
- * @returns 
+ * @returns  {object} rendered component
  */
 export default function Action(props) {
   let className = `nav-link ${props.className || ''} ${props.active ? 'active' : ''} ${props.disabled ? 'disabled' : ''}`;

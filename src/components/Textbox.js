@@ -2,17 +2,11 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 /**
- * @callback onChange
- * @param {object} e 
- * @returns 
- */
-
-/**
  * @typedef Textbox
  * 
  * @property {string} [placeholder]
  * @property {string} [ariaLabel]
- * @property {onChange} [onChange]
+ * @property {Function} [onChange]
  * @property {email|number|password|search|tel|text|url} [type='text']
  * @property {string} [id]
  * @property {string} [name]
