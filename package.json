@@ -23,7 +23,6 @@
   "scripts": {
     "build": "rollup -c",
     "build:watch": "rollup -c -w",
-    "doc": "jsdoc -R README.md ./src/**/*",
     "inst:all": "npm i && cd example && npm i",
     "lint": "eslint src",
     "start:dev": "concurrently 'npm run build:watch' 'npm run start:example'",
@@ -55,7 +54,6 @@
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-json": "^4.1.0",
     "concurrently": "^7.1.0",
-    "jsdoc": "^3.6.10",
     "rollup": "^2.70.2",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-delete": "^2.0.0",
