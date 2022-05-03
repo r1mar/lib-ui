@@ -1,10 +1,10 @@
 
 import { Routes, Route } from 'react-router-dom';
 import App from './components/App';
-import Readme from './Readme';
+import Readme from './components/Readme';
 import NavbarDoc from './components/NavbarDoc';
 
-export default Routes = (
+export default (
   <Routes>
     <Route path="/" element={<App />}>
       <Route index element={<Readme />} />
@@ -13,3 +13,4 @@ export default Routes = (
     </Route>
   </Routes>
 );
+

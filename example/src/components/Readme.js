@@ -3,22 +3,22 @@ import { Link } from 'react-router-dom';
 
 export default function Readme(props) {
   /*eslint no-multi-str: "off"*/
-  const sample = "import { i18n, Navbar } from 'rm-lib-ui'; \
-                  import { I18nextProvider } from 'react-i18next'; \
-                  import 'bootstrap-scss/bootstrap.scss'; \
-                  ... \
-                  <I18nextProvider i18n={i18n}> \
-                    <Navbar brand='Navbar' color='dark' backgroundColor='light' breakpoint='lg' > \
-                    </Navbar> \
-                  ... \
-                  </I18nextProvider>";
+  const sample = ["import { i18n, Navbar } from 'rm-lib-ui';",
+                  "import { I18nextProvider } from 'react-i18next';",
+                  "import 'bootstrap-scss/bootstrap.scss';",
+                  "...",
+                  "<I18nextProvider i18n={i18n}>",
+                  "  <Navbar brand='Navbar' color='dark' backgroundColor='light' breakpoint='lg' >",
+                  "  </Navbar>",
+                  "...",
+                  "</I18nextProvider>"];
   return (
     <div>
       <h1>React Bootstrap UI Component Library</h1>
       <p>
         This project includes a number of React components. The style of the components is decoupled from the implementation and
-        must be integrated separately into your applications. The components should be compatible with all
-        <a href="https://github.com/twbs/bootstrap">Bootstrap</a> themes.
+        must be integrated separately into your applications. The components should be compatible with 
+        all <a href="https://github.com/twbs/bootstrap">Bootstrap</a> themes.
       </p>
 
       <h2>Getting Started</h2>
@@ -26,7 +26,7 @@ export default function Readme(props) {
         In the project directory run:
         <pre>
           <code>
-            npm install rm-lib-ui --save
+            npm install rm-lib-ui --save<br/>
             npm install bootstrap-scss --save-dev
           </code>
         </pre>
@@ -34,9 +34,7 @@ export default function Readme(props) {
       <p>
         In your component insert following:
         <pre>
-          <code>
-            {sample}
-          </code>
+          {sample.map(s => (<code>{s}<br/></code>))}
         </pre>
       </p>
       <h2>Components</h2>
