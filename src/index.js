@@ -1,3 +1,7 @@
+// Breadcrumb and children
+export { default as Breadcrumb } from './components/Breadcrumb/Breadcrumb';
+export { default as BreadcrumbItem } from './components/Breadcrumb/BreadcrumbItem';
+
 // Navbar and children
 export { default as Navbar } from './components/Navbar/Navbar';
 export { default as NavbarNav } from './components/Navbar/Nav';
