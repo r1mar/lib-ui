@@ -1,17 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Code } from 'rm-lib-ui';
 
 export default function Readme(props) {
-  /*eslint no-multi-str: "off"*/
-  const sample = ["import { i18n, Navbar } from 'rm-lib-ui';",
-    "import { I18nextProvider } from 'react-i18next';",
-    "import 'bootstrap-scss/bootstrap.scss';",
-    "...",
-    "<I18nextProvider i18n={i18n}>",
-    "  <Navbar brand='Navbar' color='dark' backgroundColor='light' breakpoint='lg' >",
-    "  </Navbar>",
-    "...",
-    "</I18nextProvider>"];
   return (
     <div>
       <h1>React Bootstrap UI Component Library</h1>
@@ -23,17 +14,29 @@ export default function Readme(props) {
 
       <h2>Getting Started</h2>
       <p> In the project directory run:</p>
-      <pre>
-        <code>
-          npm install rm-lib-ui --save<br />
-          npm install bootstrap-scss --save-dev
-        </code>
-      </pre>
+      <Code>
+        npm install rm-lib-ui --save{'\n'}
+        npm install bootstrap-scss --save-dev
+      </Code>
+      <Code>
+        npm install rm-lib-ui --save{'\n'}
+        npm install bootstrap-scss --save-dev
+      </Code>
 
       <p>In your component insert following:</p>
-      <pre>
-        {sample.map((s, index) => (<code key={index}>{s}<br /></code>))}
-      </pre>
+      <Code>
+        {`
+import { i18n, Navbar } from 'rm-lib-ui';
+import { I18nextProvider } from 'react-i18next';
+import 'bootstrap-scss/bootstrap.scss';
+...
+<I18nextProvider i18n={i18n}>
+<Navbar brand='Navbar' color='dark' backgroundColor='light' breakpoint='lg' >
+</Navbar>
+...
+</I18nextProvider>
+`}
+      </Code>
 
       <h2>Components</h2>
       <ul>

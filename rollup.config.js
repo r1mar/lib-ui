@@ -28,7 +28,7 @@ const config = {
 		del({ targets: ['dist/*'] }),		
 		copy({
       targets: [{
-        src: "src/i18n",
+        src: "src/themes",
 				dest : "dist"
 			}]
     }),

@@ -16,6 +16,7 @@ export { default as NavDropdown } from './components/Nav/Dropdown';
 export { default as InlineForm } from './components/InlineForm';
 export { default as Textbox } from './components/Textbox';
 export { default as Button } from './components/Button';
+export { default as Code } from './components/Code';
 
 // Dropdown and children
 export { default as Dropdown } from './components/Dropdown/Dropdown';

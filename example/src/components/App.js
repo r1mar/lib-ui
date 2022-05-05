@@ -1,4 +1,4 @@
-import 'bootstrap-scss/bootstrap.scss';
+import 'rm-lib-ui/dist/themes/index.scss';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { i18n } from 'rm-lib-ui';

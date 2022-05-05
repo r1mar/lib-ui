@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   InlineForm, Navbar, NavAction, NavAnchor, NavbarNav, NavDropdown,
   NavLink, DropdownAction, DropdownAnchor, DropdownHeader, DropdownDivider, DropdownLink, Textbox, Button,
-  Breadcrumb, BreadcrumbItem
+  Breadcrumb, BreadcrumbItem, Code
 } from 'rm-lib-ui';
 
 
@@ -14,28 +14,26 @@ export default function NavbarDoc(props) {
   const [backgroundColor, setBackgroundColor] = useState('light');
   const [breakpoint, setBreakpoint] = useState('lg');
 
-  const example = [
-    "import { Navbar } from 'rm-lib-ui';",
-    '...',
-    `<Navbar brand="Navbar" color="${color}" backgroundColor="${backgroundColor}" breakpoint="${breakpoint}" >`,
-    '  <NavbarNav>',
-    '    <NavLink to="#">Link</NavLink>',
-    '    <NavAction onClick={() => setNavActionActive(!navbarActionActive)} active={navbarActionActive}>Action</NavAction>',
-    '    <NavAnchor id="anchor1" href="#anchor1">Anchor</NavAnchor>',
-    '    <NavDropdown caption="Dropdown">',
-    '      <DropdownHeader>Header</DropdownHeader>',
-    '      <DropdownAction onClick={() => setDropdownActionActive(!dropdownActionActive)} active={dropdownActionActive}>Action</DropdownAction>',
-    '      <DropdownAnchor id="anchor2" href="#">Anchor</DropdownAnchor>',
-    '      <DropdownDivider />',
-    '      <DropdownLink to="#">Link</DropdownLink>',
-    '    </NavDropdown>',
-    '  </NavbarNav>',
-    '  <InlineForm className="my-2 my-lg-0">',
-    '    <Textbox className="mr-sm-2" type="search" placeholder="Search" ariaLabel="Search" />',
-    '    <Button className="my-2 my-sm-0" type="submit" outlineColor="success" onClick={() => { }}>Search</Button>',
-    '  </InlineForm>',
-    '</Navbar>'
-  ];
+  const example = `import { Navbar } from 'rm-lib-ui';
+...
+<Navbar brand="Navbar" color="${color}" backgroundColor="${backgroundColor}" breakpoint="${breakpoint}" >
+  <NavbarNav>
+    <NavLink to="#">Link</NavLink>
+    <NavAction onClick={() => setNavActionActive(!navbarActionActive)} active={navbarActionActive}>Action</NavAction>
+    <NavAnchor id="anchor1" href="#anchor1">Anchor</NavAnchor>
+    <NavDropdown caption="Dropdown">
+      <DropdownHeader>Header</DropdownHeader>
+      <DropdownAction onClick={() => setDropdownActionActive(!dropdownActionActive)} active={dropdownActionActive}>Action</DropdownAction>
+      <DropdownAnchor id="anchor2" href="#">Anchor</DropdownAnchor>
+      <DropdownDivider />
+      <DropdownLink to="#">Link</DropdownLink>
+    </NavDropdown>
+  </NavbarNav>
+  <InlineForm className="my-2 my-lg-0">
+    <Textbox className="mr-sm-2" type="search" placeholder="Search" ariaLabel="Search" />
+    <Button className="my-2 my-sm-0" type="submit" outlineColor="success" onClick={() => { }}>Search</Button>
+  </InlineForm>
+</Navbar>`;
 
   return (
     <div>
@@ -65,9 +63,9 @@ export default function NavbarDoc(props) {
       </Navbar>
       <h2>Code</h2>
       <div className='highlight'>
-      <pre>
-        {example.map((s, index) => (<code key={index}>{s}<br /></code>))}
-      </pre>
+      <Code>
+{example}
+      </Code>
       </div>
     </div>
   );
