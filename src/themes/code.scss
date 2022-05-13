@@ -51,8 +51,8 @@
 }
 
 .bd-content .highlight {
-  margin-right: (-$grid-gutter-width / 2);
-  margin-left: (-$grid-gutter-width / 2);
+  margin-right: calc(-#{$grid-gutter-width} / 2);
+  margin-left: calc(-#{$grid-gutter-width} / 2);
 
   @include media-breakpoint-up(sm) {
     margin-right: 0;

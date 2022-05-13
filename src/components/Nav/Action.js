@@ -6,22 +6,11 @@ import { useTranslation } from 'react-i18next';
  * 
  * @property {function} onClick url to external link
  * @property {boolean} [active=false]
+ * @property {string} [activeLabel]
  * @property {boolean} [disabled=false]
- * @property {string} [id]
- * @property {string} [className]
- * @property {object} [style]
  * @property {string|object} children any inline tag or text
  */
 
-/**
- * Subitem of {NavbarNav}-Component. Can navigate to external and internal links(react-router-dom)
- * @example
- * <Navbar caption="hit me">
- *   <NavbarAction href="https://github.com">Home</NavbarAction>
- * </Navbar>
- * @param {NavbarAction} props 
- * @returns  {object} rendered component
- */
 export default function Action(props) {
   let className = `nav-link ${props.className || ''} ${props.active ? 'active' : ''} ${props.disabled ? 'disabled' : ''}`;
 
@@ -31,16 +20,26 @@ export default function Action(props) {
     throw new Error(t('missed-prop', {name: 'onClick', targetComponent: 'NavbarAction'}));
   }
 
-  const onClick = (e) => {
-    e.preventDefault();
-    props.onClick();
+  let attr = {
+    href: '#',
+    ...props,
+    className,
+    onClick: (e) => {
+      e.preventDefault();
+      props.onClick();
+    }
   };
 
+  delete attr.active;
+  delete attr.activeLabel;
+  delete attr.disabled;
+  delete attr.children;
+
   return (
-    <li id={props.id} className="nav-item">
-      <a href="/action" className={className} onClick={onClick} style={props.style}>
+    <li className="nav-item">
+      <a {...attr}>
         {props.children}
-        {props.active && <span className="sr-only">{t('active-label')}</span>}
+        {props.active && props.activeLabel && <span className="sr-only">{props.activeLabel}</span>}
       </a>
     </li>
   );

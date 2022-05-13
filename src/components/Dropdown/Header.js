@@ -6,9 +6,6 @@ import { useTranslation } from 'react-i18next';
  * @typedef DropdownHeader
  * 
  * @property {1|2|3|4|5|6} [importance=6]
- * @property {string} [id]
- * @property {string} [className]
- * @property {object} [style]
  * @property {string|object} children any inline tag or text
  */
 
@@ -22,11 +19,12 @@ import { useTranslation } from 'react-i18next';
  * @returns {object} rendered component
  */
 export default function Header(props) {
-  const attr = {
-    id: props.id,
-    className: `dropdown-header ${props.className || ''}`,
-    style: props.style
+  let attr = {
+    ...props,
+    className: `dropdown-header ${props.className || ''}`
   };
+
+  delete attr.importance;
 
   const { t } = useTranslation('rm-lib-ui');
 

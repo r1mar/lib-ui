@@ -3,25 +3,8 @@ import React, { useState } from 'react';
 /**
  * @typedef Dropdown
  * @property {string} [caption]
- * @property {'primary'|'secondary'|'success'|'warning'|'danger'|'info'|'dark'|'light'|'link'} [kind]
- * @property {string} [id]
- * @property {string} [className]
- * @property {object} [style]
+ * @property {'primary'|'secondary'|'success'|'warning'|'danger'|'info'|'dark'|'light'|'link'} [color]
  * @property {Array<DropdownHeader|DropdownAction|DropdownAnchor|DropdownDivider|DropdownLink>} children
- */
-
-/**
- * @example
- * import { Dropdown, DropdownDevider, DropdownAction, DropdownAnchor, DropdownLink } from 'rm-lib-ui';
- * 
- * <Dropdown kind="secondary" caption="Dropdown">
- *   <DropdownAnchor href="home1">Action</DropdownItem>
- *   <DropdownLink to="/home2">Another action</DropdownItem>
- *   <DropdownDevider />
- *   <DropdownAction onClick={onClick}>Something else here</DropdownAction>
- * </Dropdown>
- * @param {Dropdown} props 
- * @returns {object} rendered components
  */
 
 export default function Dropdown(props) {
@@ -31,8 +14,8 @@ export default function Dropdown(props) {
 
   const togglerKinds = ['primary', 'secondary', 'success', 'warning', 'danger', 'info', 'dark', 'light', 'link'];
   let togglerKindClass;
-  if(props.kind && togglerKinds.indexOf(props.kind) >= 0) {
-    togglerKindClass = `btn btn-${props.kind}`
+  if (props.color && togglerKinds.indexOf(props.color) >= 0) {
+    togglerKindClass = `btn btn-${props.color}`
   }
 
   let toggler;
@@ -47,7 +30,7 @@ export default function Dropdown(props) {
       setExpanded(!expanded);
     }
   };
-  if(props.togglerAs === 'a') {
+  if (props.togglerAs === 'a') {
     toggler = (
       <a {...togglerProps} role="button" href="/toggler">
         {props.caption}
@@ -70,15 +53,26 @@ export default function Dropdown(props) {
       </div>
     </>);
 
+  let attr = {
+    ...props,
+    className
+  };
+
+  delete attr.togglerClassName;
+  delete attr.as;
+  delete attr.togglerAs;
+  delete attr.caption;
+  delete attr.color;
+
   if (props.as === 'li') {
     return (
-      <li id={props.id} className={className} style={props.style}>
+      <li {...attr}>
         {content.props.children}
       </li>
     );
   }
   return (
-    <div id={props.id} className={className} style={props.style}>
+    <div {...attr}>
       {content.props.children}
     </div>
   );

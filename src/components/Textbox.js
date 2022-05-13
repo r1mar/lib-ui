@@ -4,31 +4,19 @@ import { useTranslation } from 'react-i18next';
 /**
  * @typedef Textbox
  * 
+ * @property {string} [value]
  * @property {string} [placeholder]
- * @property {string} [ariaLabel]
+ * @property {string} [aria-label]
  * @property {Function} [onChange]
  * @property {email|number|password|search|tel|text|url} [type='text']
- * @property {string} [id]
  * @property {string} [name]
- * @property {string} [className]
- * @property {string} [style]
  */
 
-/**
- * @example
- * <Textbox className="mr-sm-2" type="search" placeholder="Search" ariaLabel="Search" />
- * @param {Textbox} props 
- * @returns {object} rendered component
- */
 export default function Textbox(props) {
   const attr = {
+    ...props,
     placeholder: props.placeholder,
-    'aria-label': props.ariaLabel,
-    onChange: props.onChange,
-    id: props.id,
-    name: props.name,
-    className: `form-control ${props.className || ''}`,
-    style: props.style
+    className: `form-control ${props.className || ''}`
   };
 
   const { t } = useTranslation('rm-lib-ui');

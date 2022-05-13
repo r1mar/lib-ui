@@ -6,21 +6,10 @@ import { useTranslation } from 'react-i18next';
  * 
  * @property {string} href url to external link
  * @property {boolean} [disabled=false]
- * @property {string} [id]
- * @property {string} [className]
- * @property {object} [style]
+ * @property {string} [activeLabel]
  * @property {string|object} children any inline tag or text
  */
 
-/**
- * Subitem of Nav-Component. Can navigate to external and internal links(react-router-dom)
- * @example
- * <Navbar caption="hit me">
- *   <NavbarAnchor href="https://github.com">Home</NavbarAnchor>
- * </Navbar>
- * @param {NavbarAnchor} props 
- * @returns  {object} rendered component
- */
 export default function Anchor(props) {
   let className = `nav-link ${props.className || ''} ${props.disabled ? 'disabled' : ''}`;
 
@@ -36,11 +25,20 @@ export default function Anchor(props) {
     throw new Error(t('missed-prop', {name: 'href', targetComponent: 'NavbarAnchor'}));
   }
 
+  let attr = {
+    ...props,
+    className
+  };
+
+  delete attr.activeLabel;
+  delete attr.disabled;
+  delete attr.children;
+
   return (
-    <li id={props.id} className="nav-item">
-      <a className={className} href={props.href} style={props.style}>
+    <li className="nav-item">
+      <a {...attr}>
         {props.children}
-        {active && <span className="sr-only">{t('active-label')}</span>}
+        {active && <span className="sr-only">{props.activeLabel}</span>}
       </a>
     </li>
   );

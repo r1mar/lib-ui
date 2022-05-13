@@ -3,22 +3,19 @@ import React from 'react';
 /**
  * @typedef Breadcrumb
  * @property {string} [divider] 
- * @property {string} [ariaLabel]
+ * @property {string} [aria-label]
  * @property {Array<BreadcrumbItem>} children
- * @property {string} [id]
- * @property {string} [className]
- * @property {string} [style]
  */
 export default function Breadcrumb(props) {
-  const attr = {
-    id: props.id,
-    className: `breadcrumb ${props.className || ''}`,
+  let attr = {
+    ...props,
     style: props.dividers ? {
       ...props.style,
       '--bs-breadcrumb-divider': props.divider
-    } : props.style,
-    "aria-label": props.ariaLabel
+    } : props.style
   };
+
+  delete attr.divider;
 
   return (
     <nav {...attr} >

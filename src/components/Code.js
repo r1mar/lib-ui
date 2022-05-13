@@ -3,19 +3,22 @@ import { useTranslation } from 'react-i18next';
 
 /**
  * @typedef Code
- * @property {string} [id]
- * @property {string} [className]
- * @property {string} [style]
+ * @property {boolean} [inline]
  * @property {string} children html escaped text
  */
 
 export default function Code(props) {
   const attr = {
-    id: props.id,
-    className: `bd-content ${props.className || ''}`,
-    style: props.style 
+    ...props,
+    className: props.inline ? props.className : `bd-content ${props.className || ''}`,
   };
   const { t } = useTranslation('rm-lib-ui');
+
+  delete attr.inline;
+
+  if(props.inline) {
+    return (<code>{props.children}</code>);
+  }
 
   return (
     <div {...attr}>

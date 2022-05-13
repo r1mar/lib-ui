@@ -9,9 +9,6 @@ import { useTranslation } from 'react-i18next';
  * @property {'primary'|'secondary'|'success'|'warning'|'danger'|'info'|'dark'|'light'|'white'} [backgroundColor='light'] 
  * @property {'sm'|'md'|'lg'|'xl'} [breakpoint='lg']
  * @property {'fixed-top'|'fixed-bottom'|'sticky-top'} [position]
- * @property {string} [id]
- * @property {string} [className]
- * @property {object} [style]
  * @property {Array<InlineForm|NavbarNav|NavbarText>} children
  */
 
@@ -53,7 +50,7 @@ export default function Navbar(props) {
     navClass += ` bg-${props.backgroundColor}`;
   } else {
     if(props.backgroundColor) {
-      console.warn('enum-fallback', {value: props.backgroundColor, name: 'backgroundColor', targetComponent: 'Navbar'});
+      console.warn(t('enum-fallback', {value: props.backgroundColor, name: 'backgroundColor', targetComponent: 'Navbar'}));
     }
     navClass += ' bg-light';
   }
@@ -64,15 +61,17 @@ export default function Navbar(props) {
     navClass += ` navbar-expand-${props.breakpoint}`;
   } else {
     if(props.breakpoint) {
-      console.warn('enum-fallback', {value: props.breakpoint, name: 'breakpoint', targetComponent: 'Navbar'});
+      console.warn(t('enum-fallback', {value: props.breakpoint, name: 'breakpoint', targetComponent: 'Navbar'}));
     }
-    navClass += ' navbar-expand-light';
+    navClass += ' navbar-expand-lg';
   }
 
   // setting positions
   const positions = ['fixed-top', 'fixed-bottom', 'sticky-top'];
   if(props.position && positions.indexOf(props.position) >= 0) {
     navClass += ` ${props.position}`;
+  } else if (props.position) {
+    throw new Error(t('wrong-enum-value', { value: props.position, name: 'position', targetComponent: 'Navbar' }));
   }
 
   const toggleCollaps = e => {
@@ -81,8 +80,19 @@ export default function Navbar(props) {
     setCollapsed(!collapsed);
   }
 
+  let attr = {
+    ...props,
+    className: navClass
+  };
+
+  delete attr.color;
+  delete attr.backgroundColor;
+  delete attr.breakpoint;
+  delete attr.position;
+  delete attr.brand;
+
   return (
-    <nav id={props.id} className={navClass} style={props.style}>
+    <nav {...attr}>
       {props.brand && <a className="navbar-brand" href="/">{props.brand}</a>}
       <button className={togglerClass} type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
         aria-expanded={!collapsed} aria-label={t('toggler-label')} onClick={toggleCollaps}>
