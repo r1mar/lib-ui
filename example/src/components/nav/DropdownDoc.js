@@ -17,7 +17,7 @@ export default function NavDropdownDoc(props) {
         <BreadcrumbItem><Link to="/nav">Nav</Link></BreadcrumbItem>
         <BreadcrumbItem active="true">NavDropdown</BreadcrumbItem>
       </Breadcrumb>
-      <div className='container'>
+      <div className='container-md'>
         <div className='row'>
           <div className='col'>
             <h1>NavDropdown</h1>

@@ -16,7 +16,7 @@ export default function NavDoc(props) {
         <BreadcrumbItem><Link to="/navbar">Navbar</Link></BreadcrumbItem>
         <BreadcrumbItem active="true">NavbarText</BreadcrumbItem>
       </Breadcrumb>
-      <div className='container'>
+      <div className='container-md'>
         <div className='row'>
           <div className='col'>
             <h1>NavbarText</h1>

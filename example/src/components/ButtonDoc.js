@@ -25,7 +25,7 @@ export default function ButtonDoc(props) {
         <BreadcrumbItem><Link to="/">Readme</Link></BreadcrumbItem>
         <BreadcrumbItem active="true">Button</BreadcrumbItem>
       </Breadcrumb>
-      <div className='container'>
+      <div className='container-md'>
         <div className='row'>
           <div className='col'>
             <h1>Button</h1>

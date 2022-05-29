@@ -20,7 +20,7 @@ export default function NavDoc(props) {
         <BreadcrumbItem><Link to="/">Readme</Link></BreadcrumbItem>
         <BreadcrumbItem active="true">Nav</BreadcrumbItem>
       </Breadcrumb>
-      <div className='container'>
+      <div className='container-md'>
         <div className='row'>
           <div className='col'>
             <h1>Nav</h1>

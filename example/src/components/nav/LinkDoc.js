@@ -18,7 +18,7 @@ export default function LinkDoc(props) {
         <BreadcrumbItem><Link to="/nav">Nav</Link></BreadcrumbItem>
         <BreadcrumbItem active="true">NavLink</BreadcrumbItem>
       </Breadcrumb>
-      <div className='container'>
+      <div className='container-md'>
         <div className='row'>
           <div className='col'>
             <h1>NavLink</h1>

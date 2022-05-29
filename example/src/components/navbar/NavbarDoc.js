@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import {
   InlineForm, Navbar, NavAction, NavAnchor, NavbarNav, NavDropdown,
   NavLink, DropdownAction, DropdownAnchor, DropdownHeader, DropdownDivider, DropdownLink, Textbox, Button,
-  Breadcrumb, BreadcrumbItem, Code, Table, TableHeader, TableHeaderCell, TableRow, TableCell, Select, Nav
+  Breadcrumb, BreadcrumbItem, Code, Select, Nav
 } from 'rm-lib-ui';
+import PropertiesTable from '../PropertiesTable';
 
 
 export default function NavbarDoc(props) {
@@ -17,28 +18,35 @@ export default function NavbarDoc(props) {
   const [brand, setBrand] = useState('Navbar');
   const [position, setPosition] = useState();
 
-  const example = `import { Navbar, NavbarNav, NavLink, NavAction, NavAnchor, NavDropdown, 
-  DropdownHeader, DropdownAction, DropdownAnchor, DropdownLink, DropdownDivider,
-  InlineForm, Textbox, Button } from 'rm-lib-ui';
-...
-<Navbar brand="${brand}" color="${color}" backgroundColor="${backgroundColor}" breakpoint="${breakpoint}" position="${position}" >
-  <NavbarNav>
-    <NavLink to="#">Link</NavLink>
-    <NavAction onClick={() => setNavActionActive(!navbarActionActive)} active={navbarActionActive}>Action</NavAction>
-    <NavAnchor id="anchor1" href="#anchor1">Anchor</NavAnchor>
-    <NavDropdown caption="Dropdown">
-      <DropdownHeader>Header</DropdownHeader>
-      <DropdownAction onClick={() => setDropdownActionActive(!dropdownActionActive)} active={dropdownActionActive}>Action</DropdownAction>
-      <DropdownAnchor id="anchor2" href="#">Anchor</DropdownAnchor>
-      <DropdownDivider />
-      <DropdownLink to="#">Link</DropdownLink>
-    </NavDropdown>
-  </NavbarNav>
-  <InlineForm className="my-2 my-lg-0">
-    <Textbox className="mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-    <Button className="my-2 my-sm-0" type="submit" outlineColor="success" onClick={() => { }}>Search</Button>
-  </InlineForm>
-</Navbar>`;
+  const rows = [[
+    'brand', 'string | object', 'yes', null,
+    <Textbox value={brand} onChange={e => setBrand(e.target.value)} />,
+    'text or any inline-tag for brand'
+  ], [
+    'color', 'dark | light', 'yes', 'dark',
+    <Select onChange={e => setColor(e.target.value)} value={color}>
+      {['dark', 'light'].map(item => <option key={item} >{item}</option>)}
+    </Select>, 'font color'
+  ], [
+    'backgroundColor', 'primary | secondary | success | warning | danger | info | dark | light | white', 'yes', 'light',
+    <Select onChange={e => setBackgroundColor(e.target.value)} value={backgroundColor}>
+      {['primary', 'secondary', 'success', 'warning', 'danger', 'info', 'dark', 'light', 'white']
+        .map(item => <option key={item} >{item}</option>)}
+    </Select>, null
+  ], [
+    'breakpoint', 'sm | md | lg | xl', 'yes', 'lg',
+    <Select onChange={e => setBreakpoint(e.target.value)} value={breakpoint}>
+      {['sm', 'md', 'lg', 'xl'].map(item => <option key={item} >{item}</option>)}
+    </Select>, null
+  ], [
+    'position', 'fixed-top | fixed-bottom | sticky-top', 'yes', null,
+    <Select onChange={e => setPosition(e.target.value)} value={position}>
+      {['', 'fixed-top', 'fixed-bottom', 'sticky-top']
+        .map(item => <option key={item} >{item}</option>)}
+    </Select>, null
+  ], [
+    'children', 'Array<InlineForm | NavbarNav | NavbarText>', 'yes', null, null, null
+  ]];
 
   return (
     <div>
@@ -46,7 +54,7 @@ export default function NavbarDoc(props) {
         <BreadcrumbItem><Link to="/">Readme</Link></BreadcrumbItem>
         <BreadcrumbItem active="true">Navbar</BreadcrumbItem>
       </Breadcrumb>
-      <div className='container'>
+      <div className='container-md'>
         <div className='row'>
           <div className='col'>
             <h1>Navbar</h1>
@@ -71,105 +79,33 @@ export default function NavbarDoc(props) {
             </Navbar>
 
             <h2>Properties</h2>
-            <Table caption="Properties of Navbar" responsive="xl">
-              <TableHeader>
-                <TableRow>
-                  <TableHeaderCell scope="col">Name</TableHeaderCell>
-                  <TableHeaderCell scope="col">Type</TableHeaderCell>
-                  <TableHeaderCell scope="col" title="Optional">Opt.</TableHeaderCell>
-                  <TableHeaderCell scope="col" title="Default">Def.</TableHeaderCell>
-                  <TableHeaderCell scope="col">Value</TableHeaderCell>
-                  <TableHeaderCell scope="col">Description</TableHeaderCell>
-                </TableRow>
-              </TableHeader>
-              <tbody>
-                <TableRow>
-                  <TableCell>brand</TableCell>
-                  <TableCell>string | object</TableCell>
-                  <TableCell>yes</TableCell>
-                  <TableCell></TableCell>
-                  <TableCell><Textbox value={brand} onChange={e => setBrand(e.target.value)} /></TableCell>
-                  <TableCell>text or any inline-tag for brand</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>color</TableCell>
-                  <TableCell>dark | light</TableCell>
-                  <TableCell>yes</TableCell>
-                  <TableCell>dark</TableCell>
-                  <TableCell>
-                    <Select onChange={e => setColor(e.target.value)} value={color}>
-                      <option key="dark" >dark</option>
-                      <option key="light" >light</option>
-                    </Select>
-                  </TableCell>
-                  <TableCell>font color</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>backgroundColor</TableCell>
-                  <TableCell>primary | secondary | success | warning | danger | info | dark | light | white</TableCell>
-                  <TableCell>yes</TableCell>
-                  <TableCell>light</TableCell>
-                  <TableCell>
-                    <Select onChange={e => setBackgroundColor(e.target.value)} value={backgroundColor}>
-                      <option key="primary">primary</option>
-                      <option key="secondary">secondary</option>
-                      <option key="success">success</option>
-                      <option key="warning">warning</option>
-                      <option key="danger">danger</option>
-                      <option key="info"></option>
-                      <option key="dark" >dark</option>
-                      <option key="light" >light</option>
-                      <option key="white">white</option>
-                    </Select>
-                  </TableCell>
-                  <TableCell />
-                </TableRow>
-                <TableRow>
-                  <TableCell>breakpoint</TableCell>
-                  <TableCell>sm | md | lg | xl</TableCell>
-                  <TableCell>yes</TableCell>
-                  <TableCell>lg</TableCell>
-                  <TableCell>
-                    <Select onChange={e => setBreakpoint(e.target.value)} value={breakpoint}>
-                      <option key="sm">sm</option>
-                      <option key="md">md</option>
-                      <option key="lg">lg</option>
-                      <option key="xl">xl</option>
-                    </Select>
-                  </TableCell>
-                  <TableCell />
-                </TableRow>
-                <TableRow>
-                  <TableCell>position</TableCell>
-                  <TableCell>fixed-top | fixed-bottom | sticky-top</TableCell>
-                  <TableCell>yes</TableCell>
-                  <TableCell></TableCell>
-                  <TableCell>
-                    <Select onChange={e => setPosition(e.target.value)} value={position}>
-                      <option key=""></option>
-                      <option key="fixed-top">fixed-top</option>
-                      <option key="fixed-bottom">fixed-bottom</option>
-                      <option key="sticky-top">sticky-top</option>
-                    </Select>
-                  </TableCell>
-                  <TableCell />
-                </TableRow>
-                <TableRow>
-                  <TableCell>children</TableCell>
-                  <TableCell>{'Array<InlineForm | NavbarNav | NavbarText>'}</TableCell>
-                  <TableCell>yes</TableCell>
-                  <TableCell></TableCell>
-                  <TableCell></TableCell>
-                  <TableCell />
-                </TableRow>
-              </tbody>
-            </Table>
+            <PropertiesTable caption="Properties of Navbar" rows={rows} />
             <p>Navbar supports all native properties of html tag <Code inline={true}>{'<nav>'}</Code></p>
 
             <h2>Code</h2>
-            <Code>
-              {example}
-            </Code>
+            <Code>{`
+import { Navbar, NavbarNav, NavLink, NavAction, NavAnchor, NavDropdown, 
+  DropdownHeader, DropdownAction, DropdownAnchor, DropdownLink, DropdownDivider,
+  InlineForm, Textbox, Button } from 'rm-lib-ui';
+...
+<Navbar brand="${brand}" color="${color}" backgroundColor="${backgroundColor}" breakpoint="${breakpoint}" position="${position}" >
+  <NavbarNav>
+    <NavLink to="#">Link</NavLink>
+    <NavAction onClick={() => setNavActionActive(!navbarActionActive)} active={navbarActionActive}>Action</NavAction>
+    <NavAnchor id="anchor1" href="#anchor1">Anchor</NavAnchor>
+    <NavDropdown caption="Dropdown">
+      <DropdownHeader>Header</DropdownHeader>
+      <DropdownAction onClick={() => setDropdownActionActive(!dropdownActionActive)} active={dropdownActionActive}>Action</DropdownAction>
+      <DropdownAnchor id="anchor2" href="#">Anchor</DropdownAnchor>
+      <DropdownDivider />
+      <DropdownLink to="#">Link</DropdownLink>
+    </NavDropdown>
+  </NavbarNav>
+  <InlineForm className="my-2 my-lg-0">
+    <Textbox className="mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+    <Button className="my-2 my-sm-0" type="submit" outlineColor="success" onClick={() => { }}>Search</Button>
+  </InlineForm>
+</Navbar>`}</Code>
 
             <h2>References</h2>
             <Nav breakAt="allways">

@@ -18,7 +18,7 @@ export default function ActionDoc(props) {
         <BreadcrumbItem><Link to="/nav">Nav</Link></BreadcrumbItem>
         <BreadcrumbItem active="true">NavAction</BreadcrumbItem>
       </Breadcrumb>
-      <div className='container'>
+      <div className='container-md'>
         <div className='row'>
           <div className='col'>
             <h1>NavAction</h1>

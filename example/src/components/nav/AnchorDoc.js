@@ -18,7 +18,7 @@ export default function AnchorDoc(props) {
         <BreadcrumbItem><Link to="/nav">Nav</Link></BreadcrumbItem>
         <BreadcrumbItem active="true">NavAnchor</BreadcrumbItem>
       </Breadcrumb>
-      <div className='container'>
+      <div className='container-md'>
         <div className='row'>
           <div className='col'>
             <h1>NavAnchor</h1>

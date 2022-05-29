@@ -3,7 +3,7 @@ import { Code, Nav, NavLink } from 'rm-lib-ui';
 
 export default function Readme(props) {
   return (
-    <div className='container'>
+    <div className='container-md'>
       <div className='row'>
         <div className='col'>
           <h1>React Bootstrap UI Component Library</h1>
