@@ -7,10 +7,8 @@ import { useTranslation } from 'react-i18next';
  * @typedef DropdownAnchor
  * 
  * @property {string} href url to external link
+ * @property {string} [activeLabel] label for screen reader by current uri
  * @property {boolean} [disabled=false]
- * @property {string} [id]
- * @property {string} [className]
- * @property {object} [style]
  * @property {string|object} children any inline tag or text
  *  
  * @example
@@ -19,10 +17,6 @@ import { useTranslation } from 'react-i18next';
  * </Dropdown>
  */
 
-/**
- * @param {DropdownAnchor} props 
- * @returns {object} rendered component
- */
 export default function Anchor(props) {
   let className = `dropdown-item ${props.className || ''} ${props.disabled ? 'disabled' : ''}`;
 
@@ -38,10 +32,18 @@ export default function Anchor(props) {
     throw new Error(t('missed-prop', { name: 'href', targetComponent: 'DropdownAnchor' }));
   }
 
+  const attr = {
+    ...props,
+    className
+  };
+
+  delete attr.disabled;
+  delete attr.activeLabel;
+
   return (
-    <a id={props.id} className={className} href={props.href} style={props.style}>
+    <a {...attr}>
       {props.children}
-      {active && <span className="sr-only">{t('active-label')}</span>}
+      {active && props.activeLabel && <span className="sr-only">{props.activeLabel}</span>}
     </a>
   );
 

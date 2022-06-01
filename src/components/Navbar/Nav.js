@@ -3,31 +3,18 @@ import React  from 'react';
 /**
  * @typedef NavbarNav
  * @property {Array<NavbarAction,NavbarAnchor|NavbarLink|NavbarDropdown>} children
- * @property {string} [id]
- * @property {string} className
- * @property {object} style
- */
-
-/**
- * Subitem of Navbar-Component. Not for direct use outside of Navbar-Component
- * @example
- * import { NavbarAnchor, NavbarDropDown, NavbarLink } from 'rm-lib-ui'.
- * ...
- * <NavbarNav>
- *   <NavbarAnchor href="http://localhost:3000">Home</NavbarAnchor>
- *   <NavbarLink to="#">Link</NavbarLink>
- *   <NavbarDropdown caption="Dropdown" />
- *   <NavbarLink to="#" disabled={true}>Disabled</NavbarLink>
- * </NavbarNav>
- * @param {NavbarNav} props 
- * @returns {object} rendered component
  */
 
 export default function Nav(props) {
-  const className = `navbar-nav mr-auto ${props.className || ''}`;
+  let attr ={
+    ...props,
+    className: `navbar-nav mr-auto ${props.className || ''}`
+  };
+
+  delete attr.children;
 
   return (
-    <ul id={props.id} className={className} style={props.style}>
+    <ul {...attr}>
       {props.children}
     </ul>
   );

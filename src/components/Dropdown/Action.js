@@ -8,10 +8,8 @@ import { useTranslation } from 'react-i18next';
  * 
  * @property {function} onClick click event handler
  * @property {boolean} [active=false] 
+ * @property {string} [activeLabel]
  * @property {boolean} [disabled=false]
- * @property {string} [id]
- * @property {string} [className]
- * @property {object} [style]
  * @property {*} children any inline tag or text
  *
  * @example
@@ -22,28 +20,31 @@ import { useTranslation } from 'react-i18next';
  * </DropDown>
  */
 
-/**
- * @param {DropdownAction} props 
- * @returns {React.ReactElement} rendered components
- */
 export default function Action(props) {
-  let className = `dropdown-item ${props.className || ''} ${props.active ? 'active' : ''} ${props.disabled ? 'disabled' : ''}`;
-
   const { t } = useTranslation('rm-lib-ui');
 
   if (!props.onClick) {
     throw new Error(t('missed-prop', { name: 'onClick', targetComponent: 'DropdownAction' }));
   }
 
-  const onClick = (e) => {
-    e.preventDefault();
-    props.onClick();
-  };
+  let attr = {
+    ...props,
+    className: `dropdown-item ${props.className || ''} ${props.active ? 'active' : ''} ${props.disabled ? 'disabled' : ''}`,
+    onClick: (e) => {
+      e.preventDefault();
+      props.onClick();
+    },
+    href: '#'
+  }
+
+  delete attr.active;
+  delete attr.disabled;
+  delete attr.activeLabel;
 
   return (
-    <a href="/action" id={props.id} className={className} onClick={onClick} style={props.style}>
+    <a {...attr}>
       {props.children}
-      {props.active && <span className="sr-only">{t('active-label')}</span>}
+      {props.active && props.activeLabel && <span className="sr-only">{props.activeLabel}</span>}
     </a>
   );
 

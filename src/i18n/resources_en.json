@@ -1,6 +1,7 @@
 {
   "rm-lib-ui": {
     "active-label": "(current)",
+    "Copy": "Copy",
     "enum-fallback": "Value {{value}} is not allowed for property {{name}} of component {{targetComponent}}. The default value is used instead",
     "missed-prop": "required property {{name}} of component {{targetComponent}} not given",
     "toggler-label": "Toggle navigation",

@@ -3,14 +3,7 @@ import React  from 'react';
 /**
  * @typedef InlineForm
  * 
- * @property {string} [id]
- * @property {string} [className]
- * @property {string} [style]
- */
-/**
- * 
- * @param {InlineForm} props 
- * @returns {object} rendered component
+ * @property {object|Array<object>} [children]
  */
 export default function InlineForm(props) {
   const className = `form-inline ${props.className || ''}`;
