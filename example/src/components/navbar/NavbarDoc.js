@@ -109,6 +109,7 @@ import { Navbar, NavbarNav, NavLink, NavAction, NavAnchor, NavDropdown,
 
             <h2>References</h2>
             <Nav breakAt="allways">
+              <NavLink to="/button">Button</NavLink>
               <NavLink to="/inline-form">InlineForm</NavLink>
               <NavLink to="/navbar/nav">NavbarNav</NavLink>
               <NavLink to="/navbar/text">NavbarText</NavLink>

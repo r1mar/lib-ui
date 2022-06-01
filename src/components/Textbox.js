@@ -6,16 +6,13 @@ import { useTranslation } from 'react-i18next';
  * 
  * @property {string} [value]
  * @property {string} [placeholder]
- * @property {string} [aria-label]
- * @property {Function} [onChange]
  * @property {email|number|password|search|tel|text|url} [type='text']
  * @property {string} [name]
  */
 
 export default function Textbox(props) {
-  const attr = {
+  let attr = {
     ...props,
-    placeholder: props.placeholder,
     className: `form-control ${props.className || ''}`
   };
 
@@ -28,6 +25,7 @@ export default function Textbox(props) {
   } else if(props.type) {
     console.warn(t('enum-fallback', {value: props.type, name: 'type', targetComponent: 'Textbox'}));
   }
+  delete attr.type;
 
   return (
     <input {...attr} type={type} />

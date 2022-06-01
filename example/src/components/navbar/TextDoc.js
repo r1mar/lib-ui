@@ -2,12 +2,17 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Navbar, Textbox, NavbarText,
-  Breadcrumb, BreadcrumbItem, Code, Table, TableHeaderCell, TableRow, TableCell, TableHeader, 
+  Breadcrumb, BreadcrumbItem, Code
 } from 'rm-lib-ui';
+import PropertiesTable from '../PropertiesTable';
 
 
 export default function NavDoc(props) {
   const [text, setText] = useState('Example');
+
+  const rows = [[
+    'children', 'string', 'yes', null, <Textbox value={text} onChange={e => setText(e.target.value)} />, null
+  ]];
 
   return (
     <div>
@@ -28,28 +33,7 @@ export default function NavDoc(props) {
             </Navbar>
 
             <h2>Properties</h2>
-            <Table caption="Properties of NavbarText">
-              <TableHeader>
-                <TableRow>
-                  <TableHeaderCell scope="col">Name</TableHeaderCell>
-                  <TableHeaderCell scope="col">Type</TableHeaderCell>
-                  <TableHeaderCell scope="col" title="Optional">Opt.</TableHeaderCell>
-                  <TableHeaderCell scope="col" title="Default">Def.</TableHeaderCell>
-                  <TableHeaderCell scope="col">Value</TableHeaderCell>
-                  <TableHeaderCell scope="col">Description</TableHeaderCell>
-                </TableRow>
-              </TableHeader>
-              <tbody>
-                <TableRow>
-                  <TableCell>children</TableCell>
-                  <TableCell>string</TableCell>
-                  <TableCell>yes</TableCell>
-                  <TableCell></TableCell>
-                  <TableCell><Textbox value={text} onChange={e => setText(e.target.value)} /></TableCell>
-                  <TableCell />
-                </TableRow>
-              </tbody>
-            </Table>
+            <PropertiesTable caption="Properties of NavbarText" rows={rows} />
             <p>Nav supports all native properties of html tag <Code inline={true}>{'<span>'}</Code></p>
 
             <h2>Code</h2>

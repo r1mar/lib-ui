@@ -8,6 +8,7 @@ import DropdownAnchor from './components/dropdown/AnchorDoc';
 import DropdownDivider from './components/dropdown/DividerDoc';
 import DropdownHeader from './components/dropdown/HeaderDoc';
 import DropdownLink from './components/dropdown/LinkDoc';
+import InlineForm from './components/InlineFormDoc';
 import Nav from './components/nav/NavDoc';
 import NavAction from './components/nav/ActionDoc';
 import NavAnchor from './components/nav/AnchorDoc';
@@ -17,6 +18,7 @@ import NavbarText from './components/navbar/TextDoc';
 import NavLink from './components/nav/LinkDoc';
 import NavDropdown from './components/nav/DropdownDoc';
 import Readme from './components/Readme';
+import Textbox from './components/TextboxDoc';
 
 export default (
   <Routes>
@@ -29,6 +31,7 @@ export default (
       <Route path="dropdown/divider" element={<DropdownDivider />} />
       <Route path="dropdown/header" element={<DropdownHeader />} />
       <Route path="dropdown/link" element={<DropdownLink />} />
+      <Route path="inline-form" element={<InlineForm />} />
       <Route path="nav" element={<Nav />} />
       <Route path="nav/action" element={<NavAction />} />
       <Route path="nav/anchor" element={<NavAnchor />} />
@@ -37,6 +40,7 @@ export default (
       <Route path="navbar" element={<Navbar />} />
       <Route path="navbar/nav" element={<NavbarNav />} />
       <Route path="navbar/text" element={<NavbarText />} />
+      <Route path="textbox" element={<Textbox />} />
     </Route>
   </Routes>
 );

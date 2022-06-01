@@ -43,8 +43,10 @@ import 'bootstrap-scss/bootstrap.scss';
           <Nav breakAt="allways">
             <NavLink to="/button">Button</NavLink>
             <NavLink to="/dropdown">Dropdown</NavLink>
+            <NavLink to="/inline-form">InlineForm</NavLink>
             <NavLink to="/nav">Nav</NavLink>
             <NavLink to="/navbar">Navbar</NavLink>
+            <NavLink to="/textbox">Textbox</NavLink>
           </Nav>
         </div>
       </div>

@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   NavbarNav, NavAction, NavAnchor, NavDropdown, NavLink, Navbar, DropdownAction,
-  Breadcrumb, BreadcrumbItem, Code, Nav, Table, TableHeader, TableCell, TableRow, TableHeaderCell
+  Breadcrumb, BreadcrumbItem, Code, Nav
 } from 'rm-lib-ui';
-
+import PropertiesTable from '../PropertiesTable';
 
 export default function NavDoc(props) {
   const [actionActive, setActionActive] = useState(false);
+
+  const rows = [[
+    'children', 'Array<NavAction | NavAnchor | NavDropdown | NavLink>', 'yes', null, null, null
+  ]];
 
   return (
     <div>
@@ -33,28 +37,7 @@ export default function NavDoc(props) {
             </Navbar>
 
             <h2>Properties</h2>   
-            <Table caption="Properties of Navbar">
-              <TableHeader>
-                <TableRow>
-                  <TableHeaderCell scope="col">Name</TableHeaderCell>
-                  <TableHeaderCell scope="col">Type</TableHeaderCell>
-                  <TableHeaderCell scope="col" title="Optional">Opt.</TableHeaderCell>
-                  <TableHeaderCell scope="col" title="Default">Def.</TableHeaderCell>
-                  <TableHeaderCell scope="col">Value</TableHeaderCell>
-                  <TableHeaderCell scope="col">Description</TableHeaderCell>
-                </TableRow>
-              </TableHeader>
-              <tbody>
-                <TableRow>
-                  <TableCell>children</TableCell>
-                  <TableCell>{'Array<NavAction | NavAnchor | NavDropdown | NavLink>'}</TableCell>
-                  <TableCell>yes</TableCell>
-                  <TableCell></TableCell>
-                  <TableCell></TableCell>
-                  <TableCell />
-                </TableRow>
-              </tbody>
-            </Table>
+            <PropertiesTable caption="Properties of Navbar" rows={rows} />
             <p>Nav supports all native properties of html tag <Code inline={true}>{'<ul>'}</Code></p>
 
             <h2>Code</h2>

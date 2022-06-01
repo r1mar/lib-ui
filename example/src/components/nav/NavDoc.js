@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Nav, NavAction, NavAnchor, NavDropdown, NavLink, Select, DropdownAction,
-  Breadcrumb, BreadcrumbItem, Code, Table, TableHeader, TableHeaderCell, TableRow, TableCell
+  Breadcrumb, BreadcrumbItem, Code
 } from 'rm-lib-ui';
+import PropertiesTable from '../PropertiesTable';
 
 
 export default function NavDoc(props) {
@@ -13,6 +14,20 @@ export default function NavDoc(props) {
 
   const aligments = [ 'start', 'center', 'end', 'around', 'betweeen'];
   const breaks = ['allways', 'sm', 'md', 'lg', 'xl', '']; 
+
+  const rows = [[
+    'aligment', 'struct', 'yes', 'start',
+    <Select value={aligment} onChange={e => setAligment(e.target.value)}>
+      {aligments.map(item => (<option key={item}>{item}</option>))}
+    </Select>, 'Hotizontal Aligment'
+  ], [
+    'breaktAt', 'string', 'yes', 'allways',
+    <Select value={breakAt} onChange={e => setBreakAt(e.target.value)}>
+      {breaks.map(item => (<option key={item}>{item}</option>))}
+    </Select>, 'Breakpoint to vertikal'
+  ], [
+    'children', 'Array<NavAction | NavAnchor | NavDropdown | NavLink>', 'yes', null, null, null 
+  ]];
 
   return (
     <div>
@@ -35,52 +50,7 @@ export default function NavDoc(props) {
             </Nav>
 
             <h2>Properties</h2>
-            <Table caption="Properties of Nav">
-              <TableHeader>
-                <TableRow>
-                  <TableHeaderCell scope="col">Name</TableHeaderCell>
-                  <TableHeaderCell scope="col">Type</TableHeaderCell>
-                  <TableHeaderCell scope="col" title="Optional">Opt.</TableHeaderCell>
-                  <TableHeaderCell scope="col" title="Default">Def.</TableHeaderCell>
-                  <TableHeaderCell scope="col">Value</TableHeaderCell>
-                  <TableHeaderCell scope="col">Description</TableHeaderCell>
-                </TableRow>
-              </TableHeader>
-              <tbody>
-                <TableRow>
-                  <TableCell>aligment</TableCell>
-                  <TableCell>string</TableCell>
-                  <TableCell>yes</TableCell>
-                  <TableCell>start</TableCell>
-                  <TableCell>
-                    <Select value={aligment} onChange={e => setAligment(e.target.value)}>
-                      {aligments.map(item => (<option key={item}>{item}</option>))}
-                    </Select>
-                  </TableCell>
-                  <TableCell>Hotizontal Aligment</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>breaktAt</TableCell>
-                  <TableCell>string</TableCell>
-                  <TableCell>yes</TableCell>
-                  <TableCell>allways</TableCell>
-                  <TableCell>
-                    <Select value={breakAt} onChange={e => setBreakAt(e.target.value)}>
-                      {breaks.map(item => (<option key={item}>{item}</option>))}
-                    </Select>
-                  </TableCell>
-                  <TableCell>Breakpoint to vertikal</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>children</TableCell>
-                  <TableCell>{'Array<NavAction | NavAnchor | NavDropdown | NavLink>'}</TableCell>
-                  <TableCell>yes</TableCell>
-                  <TableCell></TableCell>
-                  <TableCell></TableCell>
-                  <TableCell />
-                </TableRow>
-              </tbody>
-            </Table>
+            <PropertiesTable caption="Properties of Nav" rows={rows} />
             <p>Nav supports all native properties of html tag <Code inline={true}>{'<ul>'}</Code></p>
 
             <h2>Code</h2>
