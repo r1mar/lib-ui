@@ -6,6 +6,7 @@
   "module": "dist/index.esm.js",
   "source": "src/index.js",
   "repository": "https://github.com/r1mar/lib-ui.git",
+  "homepage": "https://r1mar.github.io/rm-lib-ui",
   "author": "Richard Martens",
   "license": "MIT",
   "dependencies": {
