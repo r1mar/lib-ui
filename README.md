@@ -2,6 +2,8 @@
 
 This project includes a number of React components. The style of the components is decoupled from the implementation and must be integrated separately into your applications. The components should be compatible with all [Bootstrap](https://github.com/twbs/bootstrap) themes.
 
+Demo and further documentation can be found on the [project site](https://r1mar.github.io/rm-lib-ui).
+
 ## Getting Started
 
 In the project directory run:
