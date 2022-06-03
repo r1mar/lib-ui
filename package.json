@@ -1,6 +1,6 @@
 {
   "name": "rm-lib-ui",
-  "version": "0.1.0-beta.2",
+  "version": "0.1.0-beta.3",
   "private": false,
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -9,7 +9,12 @@
   "homepage": "https://r1mar.github.io/rm-lib-ui",
   "author": "Richard Martens",
   "license": "MIT",
-  "keywords": ["react", "bootstrap", "react-components", "javascript"],
+  "keywords": [
+    "react",
+    "bootstrap",
+    "react-components",
+    "javascript"
+  ],
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
