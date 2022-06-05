@@ -18,6 +18,8 @@ import NavbarText from './components/navbar/TextDoc';
 import NavLink from './components/nav/LinkDoc';
 import NavDropdown from './components/nav/DropdownDoc';
 import Readme from './components/Readme';
+import Sidebar from './components/sidebar/SidebarDoc';
+import SidebarNav from './components/sidebar/SidebarNavDoc';
 import Textbox from './components/TextboxDoc';
 
 export default (
@@ -40,6 +42,8 @@ export default (
       <Route path="navbar" element={<Navbar />} />
       <Route path="navbar/nav" element={<NavbarNav />} />
       <Route path="navbar/text" element={<NavbarText />} />
+      <Route path="sidebar" element={<Sidebar />} />
+      <Route path="sidebar/nav" element={<SidebarNav />} />
       <Route path="textbox" element={<Textbox />} />
     </Route>
   </Routes>

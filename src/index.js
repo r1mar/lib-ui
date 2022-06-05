@@ -36,3 +36,6 @@ export { default as TableCell } from './components/Table/TableCell';
 export { default as TableHeader } from './components/Table/TableHeader';
 export { default as TableHeaderCell } from './components/Table/TableHeaderCell';
 export { default as TableRow } from './components/Table/TableRow';
+
+export { default as Sidebar } from './components/Sidebar/Sidebar';
+export { default as SidebarNav } from './components/Sidebar/SidebarNav';

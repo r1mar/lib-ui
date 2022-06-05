@@ -46,6 +46,7 @@ import 'bootstrap-scss/bootstrap.scss';
             <NavLink to="/inline-form">InlineForm</NavLink>
             <NavLink to="/nav">Nav</NavLink>
             <NavLink to="/navbar">Navbar</NavLink>
+            <NavLink to="/sidebar">Sidebar</NavLink>
             <NavLink to="/textbox">Textbox</NavLink>
           </Nav>
         </div>

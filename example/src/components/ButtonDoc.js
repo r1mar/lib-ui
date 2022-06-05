@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Button,
-  Breadcrumb, BreadcrumbItem, Code, Table, TableHeader, TableHeaderCell, TableRow, TableCell, Select
+  Breadcrumb, BreadcrumbItem, Code, Select
 } from 'rm-lib-ui';
+import PropertiesTable from './PropertiesTable';
 
 
 export default function ButtonDoc(props) {
@@ -13,11 +14,19 @@ export default function ButtonDoc(props) {
   const colors = ['dark', 'light', 'primary', 'secondary', 'success', 'warning', 'danger', 'info', 'link', ''];
   const outlineColors = ['dark', 'light', 'primary', 'secondary', 'success', 'warning', 'danger', 'info', 'link', ''];
 
-  const example = `import { Button } from 'rm-lib-ui';
-...
-<Button color="${color}" outlineColor="${outlineColor}" >
-  Example
-</Button>`;
+  const rows = [[
+    'color', colors.reduce((previous, current) => current ? `${previous} | ${current}` : previous), 'yes', null,
+    <Select onChange={e => setColor(e.target.value)} value={color}>
+      {colors.map(colorItem => (<option key={colorItem} >{colorItem}</option>))}
+    </Select>, 'Fill Color'
+  ], [
+    'outlineColor', outlineColors.reduce((previous, current) => current ? `${previous} | ${current}` : previous), 'yes', null,
+    <Select onChange={e => setOutlineColor(e.target.value)} value={outlineColor}>
+      {outlineColors.map(outlineItem => (<option key={outlineItem} >{outlineItem}</option>))}
+    </Select>, null
+  ], [
+    'children', 'object | string', 'yes', null, null, 'caption string or any tag'
+  ]];
 
   return (
     <div>
@@ -33,57 +42,15 @@ export default function ButtonDoc(props) {
             <Button color={color} outlineColor={outlineColor}>Example</Button>
 
             <h2>Properties</h2>
-            <Table caption="Properties of Button">
-              <TableHeader>
-                <TableRow>
-                  <TableHeaderCell scope="col">Name</TableHeaderCell>
-                  <TableHeaderCell scope="col">Type</TableHeaderCell>
-                  <TableHeaderCell scope="col" title="Optional">Opt.</TableHeaderCell>
-                  <TableHeaderCell scope="col" title="Default">Def.</TableHeaderCell>
-                  <TableHeaderCell scope="col">Value</TableHeaderCell>
-                  <TableHeaderCell scope="col">Description</TableHeaderCell>
-                </TableRow>
-              </TableHeader>
-              <tbody>
-                <TableRow>
-                  <TableCell>color</TableCell>
-                  <TableCell>{colors.reduce((previous, current) => current ? `${previous} | ${current}` : previous)}</TableCell>
-                  <TableCell>yes</TableCell>
-                  <TableCell></TableCell>
-                  <TableCell>
-                    <Select onChange={e => setColor(e.target.value)} value={color}>
-                      {colors.map(colorItem => (<option key={colorItem} >{colorItem}</option>))}
-                    </Select>
-                  </TableCell>
-                  <TableCell>Fill Color</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>outlineColor</TableCell>
-                  <TableCell>{outlineColors.reduce((previous, current) => current ? `${previous} | ${current}` : previous)}</TableCell>
-                  <TableCell>yes</TableCell>
-                  <TableCell></TableCell>
-                  <TableCell>
-                    <Select onChange={e => setOutlineColor(e.target.value)} value={outlineColor}>
-                      {outlineColors.map(outlineItem => (<option key={outlineItem} >{outlineItem}</option>))}
-                    </Select>
-                  </TableCell>
-                  <TableCell />
-                </TableRow>
-                <TableRow>
-                  <TableCell>children</TableCell>
-                  <TableCell>object | string</TableCell>
-                  <TableCell>yes</TableCell>
-                  <TableCell></TableCell>
-                  <TableCell>caption string or any tags</TableCell>
-                  <TableCell />
-                </TableRow>
-              </tbody>
-            </Table>
+            <PropertiesTable caption="Properties of Button" rows={rows} />
             <p>Buttons supports all native properties of html tag <Code inline={true}>{'<button>'}</Code></p>
 
             <h2>Code</h2>
-            <Code>
-              {example}
+            <Code>{`import { Button } from 'rm-lib-ui';
+...
+<Button color="${color}" outlineColor="${outlineColor}" >
+  Example
+</Button>`}
             </Code>
           </div>
         </div>

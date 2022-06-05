@@ -36,8 +36,7 @@
     "inst:all": "npm i && cd example && npm i",
     "lint": "eslint src",
     "prepublish": "npm run build",
-    "start:dev": "concurrently 'npm run build:watch' 'npm run start:example'",
-    "start:example": "cd example && npm run start"
+    "start": "cd example && npm run start"
   },
   "eslintConfig": {
     "extends": [
@@ -64,7 +63,6 @@
     "@babel/preset-react": "^7.16.7",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-json": "^4.1.0",
-    "concurrently": "^7.1.0",
     "rollup": "^2.70.2",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-delete": "^2.0.0",
