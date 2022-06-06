@@ -2,18 +2,20 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Nav, NavAction, NavAnchor, NavDropdown, NavLink, Select, DropdownAction,
-  Breadcrumb, BreadcrumbItem, Code
+  Breadcrumb, BreadcrumbItem, Code, Textbox
 } from 'rm-lib-ui';
 import PropertiesTable from '../PropertiesTable';
+import References from '../Referenzes';
 
 
 export default function NavDoc(props) {
   const [actionActive, setActionActive] = useState(false);
   const [aligment, setAligment] = useState('start');
   const [breakAt, setBreakAt] = useState('');
+  const [heading, setHeading] = useState('');
 
-  const aligments = [ 'start', 'center', 'end', 'around', 'betweeen'];
-  const breaks = ['allways', 'sm', 'md', 'lg', 'xl', '']; 
+  const aligments = ['start', 'center', 'end', 'around', 'betweeen'];
+  const breaks = ['allways', 'sm', 'md', 'lg', 'xl', ''];
 
   const rows = [[
     'aligment', 'struct', 'yes', 'start',
@@ -26,7 +28,10 @@ export default function NavDoc(props) {
       {breaks.map(item => (<option key={item}>{item}</option>))}
     </Select>, 'Breakpoint to vertikal'
   ], [
-    'children', 'Array<NavAction | NavAnchor | NavDropdown | NavLink>', 'yes', null, null, null 
+    'heading', 'string or any inline tag', 'yes', null,
+    <Textbox value={heading} onChange={e => setHeading(e.target.value)} />, 'Nav header'
+  ], [
+    'children', 'Array<NavAction | NavAnchor | NavDropdown | NavLink>', 'yes', null, null, null
   ]];
 
   return (
@@ -40,7 +45,7 @@ export default function NavDoc(props) {
           <div className='col'>
             <h1>Nav</h1>
             <p>Nav</p>
-            <Nav aligment={aligment} breakAt={breakAt} >
+            <Nav aligment={aligment} breakAt={breakAt} heading={heading} >
               <NavAction onClick={() => setActionActive(!actionActive)} active={actionActive}>Action</NavAction>
               <NavAnchor id="anchor2" href="#">Anchor</NavAnchor>
               <NavDropdown caption="NavDropdown">
@@ -51,12 +56,12 @@ export default function NavDoc(props) {
 
             <h2>Properties</h2>
             <PropertiesTable caption="Properties of Nav" rows={rows} />
-            <p>Nav supports all native properties of html tag <Code inline={true}>{'<ul>'}</Code></p>
+            <p>Nav supports all native properties of html tag <Code inline={true}>{'<div>'}</Code></p>
 
             <h2>Code</h2>
             <Code>{`import { Nav, NavAction, NavAnchor, NavLink, NavDropdown, DropdownAction } from 'rm-lib-ui';
 ...
-<Nav aligment="${aligment}" breakAt="${breakAt}" >
+<Nav aligment="${aligment}" breakAt="${breakAt}" heading="${heading}" >
   <NavAction onClick={() => setActionActive(!navActionActive)} active={actionActive}>Action</NavAction>
   <NavAnchor id="anchor2" href="#">Anchor</NavAnchor>
   <NavDropdown>
@@ -65,17 +70,16 @@ export default function NavDoc(props) {
   <NavLink to="#">Link</NavLink>
 </Nav>`}
             </Code>
-
-            <h2>References</h2>
-            <Nav breakAt="allways">
-              <NavLink to="/nav/action">NavAction</NavLink>
-              <NavLink to="/nav/anchor">NavAnchor</NavLink>
-              <NavLink to="/nav/dropdown">NavDropdown</NavLink>
-              <NavLink to="/nav/link">NavLink</NavLink>
-            </Nav>
           </div>
         </div>
       </div>
+      
+      <References>
+        <NavLink to="/nav/action">NavAction</NavLink>
+        <NavLink to="/nav/anchor">NavAnchor</NavLink>
+        <NavLink to="/nav/dropdown">NavDropdown</NavLink>
+        <NavLink to="/nav/link">NavLink</NavLink>
+      </References>
     </div>
   );
 }

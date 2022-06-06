@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Dropdown, NavLink, DropdownAction, DropdownAnchor, DropdownHeader, DropdownDivider, DropdownLink, Textbox, 
-  Breadcrumb, BreadcrumbItem, Code, Select, Nav
+  Dropdown, NavLink, DropdownAction, DropdownAnchor, DropdownHeader, DropdownDivider, DropdownLink, Textbox,
+  Breadcrumb, BreadcrumbItem, Code, Select
 } from 'rm-lib-ui';
 import PropertiesTable from '../PropertiesTable';
+import References from '../Referenzes';
 
 
 export default function DropdownDoc(props) {
@@ -63,18 +64,17 @@ import { Dropdown, DropdownHeader, DropdownAction, DropdownAnchor, DropdownLink,
   <DropdownLink to="#">Link</DropdownLink>
 </Dropdown>`}
             </Code>
-
-            <h2>References</h2>
-            <Nav breakAt="allways">
-              <NavLink to="/dropdown/action">DropdownAction</NavLink>
-              <NavLink to="/dropdown/anchor">DropdownAnchor</NavLink>
-              <NavLink to="/dropdown/divider">DropdownDivider</NavLink>
-              <NavLink to="/dropdown/header">DropdownHeader</NavLink>
-              <NavLink to="/dropdown/link">DropdownLink</NavLink>
-            </Nav>
           </div>
         </div>
       </div>
+
+      <References>
+        <NavLink to="/dropdown/action">DropdownAction</NavLink>
+        <NavLink to="/dropdown/anchor">DropdownAnchor</NavLink>
+        <NavLink to="/dropdown/divider">DropdownDivider</NavLink>
+        <NavLink to="/dropdown/header">DropdownHeader</NavLink>
+        <NavLink to="/dropdown/link">DropdownLink</NavLink>
+      </References>
     </div>
   );
 }

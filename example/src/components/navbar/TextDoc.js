@@ -34,7 +34,7 @@ export default function NavDoc(props) {
 
             <h2>Properties</h2>
             <PropertiesTable caption="Properties of NavbarText" rows={rows} />
-            <p>Nav supports all native properties of html tag <Code inline={true}>{'<span>'}</Code></p>
+            <p>NavbarText supports all native properties of html tag <Code inline={true}>{'<span>'}</Code></p>
 
             <h2>Code</h2>
             <Code>{`import { Navbar, NavbarText } from 'rm-lib-ui';

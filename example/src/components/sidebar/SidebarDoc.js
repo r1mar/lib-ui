@@ -9,7 +9,7 @@ export default function SidebarDoc(props) {
   const backgroundColors = ['primary', 'secondary', 'success', 'warning', 'danger', 'info', 'light', 'dark', 'white', 'transparent'];
 
   const rows = [[
-    'backgroundColor', backgroundColors.reduce((previous, current) => current ? `${previous} | ${current}` : previous), 'yes', 'text',
+    'backgroundColor', backgroundColors.reduce((previous, current) => current ? `${previous} | ${current}` : previous), 'yes', 'light',
     <Select onChange={e => setBackgroundColor(e.target.value)} value={backgroundColor}>
       {backgroundColors.map(item => (<option key={item} >{item}</option>))}
     </Select>, null

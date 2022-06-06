@@ -35,4 +35,5 @@ import 'bootstrap-scss/bootstrap.scss';
     - NavbarText - Menu item for representing text in menu
 - InlineForm
 - Button
+- Sidebar
 - Textbox

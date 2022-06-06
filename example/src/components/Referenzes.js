@@ -7,8 +7,7 @@ export default function References(props) {
       <div className="container-md">
         <div className='row'>
           <div className='col'>
-            <h2>References</h2>
-            <Nav breakAt="allways">
+            <Nav breakAt="allways" header={props.header || 'References'}>
               {props.children}
             </Nav>
           </div>

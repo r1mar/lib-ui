@@ -16,6 +16,8 @@ export default function Sidebar(props) {
       className += ` bg-light`;
       console.warn(t('enum-fallback', {value: props.backgroundColor, name: 'backgroundColor', targetComponent: 'Sidebar'}));
     }
+  } else {
+    className += ` bg-light`;
   }
 
   attr.className = `${className || ''} ${ props.className || ''}`;
