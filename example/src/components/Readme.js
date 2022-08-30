@@ -1,6 +1,7 @@
 import React from 'react';
-import { Code, NavLink } from 'rm-lib-ui';
+import { Code } from 'rm-lib-ui';
 import References from './Referenzes';
+import COMPONENTLIST from './ComponentList';
 
 export default function Readme(props) {
   return (
@@ -38,14 +39,8 @@ import 'bootstrap-scss/bootstrap.scss';
 `}
       </Code>
 
-      <References breakAt="allways" header="Components">
-        <NavLink to="/button">Button</NavLink>
-        <NavLink to="/dropdown">Dropdown</NavLink>
-        <NavLink to="/inline-form">InlineForm</NavLink>
-        <NavLink to="/nav">Nav</NavLink>
-        <NavLink to="/navbar">Navbar</NavLink>
-        <NavLink to="/sidebar">Sidebar</NavLink>
-        <NavLink to="/textbox">Textbox</NavLink>
+      <References breakAt="allways" header="Components" className="d-block d-xl-none">
+        {COMPONENTLIST.props.children}
       </References>
     </div>);
 }

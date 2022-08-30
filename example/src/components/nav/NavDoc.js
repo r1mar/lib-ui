@@ -36,44 +36,40 @@ export default function NavDoc(props) {
 
   return (
     <div>
-      <Breadcrumb divider="/">
+      <Breadcrumb className="d-block d-xl-none">
         <BreadcrumbItem><Link to="/">Readme</Link></BreadcrumbItem>
         <BreadcrumbItem active="true">Nav</BreadcrumbItem>
       </Breadcrumb>
-      <div className='container-md'>
-        <div className='row'>
-          <div className='col'>
-            <h1>Nav</h1>
-            <p>Nav</p>
-            <Nav aligment={aligment} breakAt={breakAt} heading={heading} >
-              <NavAction onClick={() => setActionActive(!actionActive)} active={actionActive}>Action</NavAction>
-              <NavAnchor id="anchor2" href="#">Anchor</NavAnchor>
-              <NavDropdown caption="NavDropdown">
-                <DropdownAction onClick={() => setActionActive(!actionActive)} active={actionActive}>Action</DropdownAction>
-              </NavDropdown>
-              <NavLink to="#">Link</NavLink>
-            </Nav>
 
-            <h2>Properties</h2>
-            <PropertiesTable caption="Properties of Nav" rows={rows} />
-            <p>Nav supports all native properties of html tag <Code inline={true}>{'<div>'}</Code></p>
+      <h1>Nav</h1>
+      <p>Nav</p>
+      <Nav aligment={aligment} breakAt={breakAt} heading={heading} >
+        <NavAction onClick={() => setActionActive(!actionActive)} active={actionActive}>Action</NavAction>
+        <NavAnchor id="anchor2" href="#">Anchor</NavAnchor>
+        <NavDropdown caption="NavDropdown">
+          <DropdownAction onClick={() => setActionActive(!actionActive)} active={actionActive}>Action</DropdownAction>
+        </NavDropdown>
+        <NavLink to="#">Link</NavLink>
+      </Nav>
 
-            <h2>Code</h2>
-            <Code>{`import { Nav, NavAction, NavAnchor, NavLink, NavDropdown, DropdownAction } from 'rm-lib-ui';
+      <h2>Properties</h2>
+      <PropertiesTable caption="Properties of Nav" rows={rows} />
+      <p>Nav supports all native properties of html tag <Code inline={true}>{'<div>'}</Code></p>
+
+      <h2>Code</h2>
+      <Code>{`import { Nav, NavAction, NavAnchor, NavLink, NavDropdown, DropdownAction } from 'rm-lib-ui';
 ...
 <Nav aligment="${aligment}" breakAt="${breakAt}" heading="${heading}" >
   <NavAction onClick={() => setActionActive(!navActionActive)} active={actionActive}>Action</NavAction>
   <NavAnchor id="anchor2" href="#">Anchor</NavAnchor>
   <NavDropdown>
-    <DropdownAction onClick={() => setActionActive(!navActionActive)} active={actionActive}>Action</DropdownAction>
+    <DropdownAction onClick={() => setActionActive(!navActionActive)} 
+      active={actionActive}>Action</DropdownAction>
   </NavDropdown>
   <NavLink to="#">Link</NavLink>
 </Nav>`}
-            </Code>
-          </div>
-        </div>
-      </div>
-      
+      </Code>
+
       <References>
         <NavLink to="/nav/action">NavAction</NavLink>
         <NavLink to="/nav/anchor">NavAnchor</NavLink>

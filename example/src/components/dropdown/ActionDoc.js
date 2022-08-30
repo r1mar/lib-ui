@@ -32,38 +32,33 @@ export default function ActionDoc(props) {
 
   return (
     <div>
-      <Breadcrumb divider="/">
+      <Breadcrumb>
         <BreadcrumbItem><Link to="/">Readme</Link></BreadcrumbItem>
         <BreadcrumbItem><Link to="/dropdown">Dropdown</Link></BreadcrumbItem>
         <BreadcrumbItem active="true">DropdownAction</BreadcrumbItem>
       </Breadcrumb>
-      <div className='container-md'>
-        <div className='row'>
-          <div className='col'>
-            <h1>DropdownAction</h1>
-            <p>Simple clickable DropdownAction</p>
-            <Dropdown caption="Example" color="dark">
-              <DropdownAction active={active} activeLabel={activeLabel} disabled={disabled} onClick={() => {}} >
-                Example Action
-              </DropdownAction>
-            </Dropdown>
 
-            <h2>Properties</h2>
-            <PropertiesTable caption="Properties of DropdownAction" rows={rows} />
-            <p>DropdownAction supports all native properties of html tag <Code inline={true}>{'<a>'}</Code></p>
+      <h1>DropdownAction</h1>
+      <p>Simple clickable DropdownAction</p>
+      <Dropdown caption="Example" color="dark">
+        <DropdownAction active={active} activeLabel={activeLabel} disabled={disabled} onClick={() => { }} >
+          Example Action
+        </DropdownAction>
+      </Dropdown>
 
-            <h2>Code</h2>
-            <Code>{`import { DropdownAction, Dropdown } from 'rm-lib-ui';
+      <h2>Properties</h2>
+      <PropertiesTable caption="Properties of DropdownAction" rows={rows} />
+      <p>DropdownAction supports all native properties of html tag <Code inline={true}>{'<a>'}</Code></p>
+
+      <h2>Code</h2>
+      <Code>{`import { DropdownAction, Dropdown } from 'rm-lib-ui';
 ...
 <Dropdown caption="Example" color="dark">
   <DropdownAction active={active} activeLabel="${activeLabel}" onClick={onClick} disabled={disabled} >
     Example Action
   </DropdownAction>
 </Dropdown>`}
-            </Code>
-          </div>
-        </div>
-      </div>
+      </Code>
     </div>
   );
 }

@@ -1,6 +1,8 @@
 
 import { Routes, Route } from 'react-router-dom';
 import App from './components/App';
+import Breadcrumb from './components/breadcrumb/BreadCrumbDoc';
+import BreadcrumbItem from './components/breadcrumb/BreadcrumbItem';
 import Button from './components/ButtonDoc';
 import Dropdown from './components/dropdown/DropdownDoc';
 import DropdownAction from './components/dropdown/ActionDoc';
@@ -27,6 +29,8 @@ export default (
     <Route path="/" element={<App />}>
       <Route index element={<Readme />} />
       <Route path="button" element={<Button />} />
+      <Route path="breadcrumb" element={<Breadcrumb />} />
+      <Route path="breadcrumb/item" element={<BreadcrumbItem />} />
       <Route path="dropdown" element={<Dropdown />} />
       <Route path="dropdown/action" element={<DropdownAction />} />
       <Route path="dropdown/anchor" element={<DropdownAnchor />} />

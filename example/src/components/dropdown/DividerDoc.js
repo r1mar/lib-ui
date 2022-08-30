@@ -9,37 +9,33 @@ import {
 export default function DividerDoc(props) {
   return (
     <div>
-      <Breadcrumb divider="/">
+      <Breadcrumb>
         <BreadcrumbItem><Link to="/">Readme</Link></BreadcrumbItem>
         <BreadcrumbItem><Link to="/dropdown">Dropdown</Link></BreadcrumbItem>
         <BreadcrumbItem active="true">DropdownDivider</BreadcrumbItem>
       </Breadcrumb>
-      <div className='container-md'>
-        <div className='row'>
-          <div className='col'>
-            <h1>DropdownDivider</h1>
-            <p>Simple DropdownDivider</p>
-            <Dropdown caption="Example" color="dark">
-              <DropdownHeader>Header</DropdownHeader>
-              <DropdownDivider />
-              <DropdownAction onClick={e => {}}>any Action</DropdownAction>
-            </Dropdown>
 
-            <h2>Properties</h2>
-            <p>DropdownDivider supports all native properties of html tag <Code inline={true}>{'<div>'}</Code></p>
+      <h1>DropdownDivider</h1>
+      <p>Simple DropdownDivider</p>
+      <Dropdown caption="Example" color="dark">
+        <DropdownHeader>Header</DropdownHeader>
+        <DropdownDivider />
+        <DropdownAction onClick={e => { }}>any Action</DropdownAction>
+      </Dropdown>
 
-            <h2>Code</h2>
-            <Code>{`import { DropdownDivider, Dropdown, DropdownAction, DropdownHeader } from 'rm-lib-ui';
+      <h2>Properties</h2>
+      <p>DropdownDivider supports all native properties of html tag <Code inline={true}>{'<div>'}</Code></p>
+
+      <h2>Code</h2>
+      <Code>{`import { DropdownDivider, Dropdown, DropdownAction, DropdownHeader } from 'rm-lib-ui';
 ...
 <Dropdown caption="Example" color="dark">
   <DropdownHeader>Header</DropdownHeader>
   <DropdownDivider />
   <DropdownAction onClick={e => {}}>any Action</DropdownAction>
 </Dropdown>`}
-            </Code>
-          </div>
-        </div>
-      </div>
+      </Code>
     </div>
+
   );
 }

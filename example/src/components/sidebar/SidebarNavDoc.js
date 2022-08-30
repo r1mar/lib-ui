@@ -16,13 +16,11 @@ export default function SidebarNavDoc(props) {
 
   return (
     <div>
-      <Breadcrumb divider="/">
+      <Breadcrumb className="d-block d-xl-none">
         <BreadcrumbItem><Link to="/">Readme</Link></BreadcrumbItem>
         <BreadcrumbItem active="true">Sidebar</BreadcrumbItem>
       </Breadcrumb>
-      <div className='container-md'>
-        <div className='row'>
-          <div className='col'>
+
             <h1>SidebarNav</h1>
             <p>nav for using as child of sidebar</p>
             <Sidebar backgroundColor="light">
@@ -55,11 +53,6 @@ export default function SidebarNavDoc(props) {
     </SidebarNav>
   </Sidebar>`}
             </Code>
-
-
-          </div>
-        </div>
-      </div>
 
       <References>
         <NavLink to="/nav/action">NavAction</NavLink>

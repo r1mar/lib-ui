@@ -22,38 +22,34 @@ export default function HeaderDoc(props) {
 
   return (
     <div>
-      <Breadcrumb divider="/">
+      <Breadcrumb>
         <BreadcrumbItem><Link to="/">Readme</Link></BreadcrumbItem>
         <BreadcrumbItem><Link to="/dropdown">Dropdown</Link></BreadcrumbItem>
         <BreadcrumbItem active="true">DropdownHeader</BreadcrumbItem>
       </Breadcrumb>
-      <div className='container-md'>
-        <div className='row'>
-          <div className='col'>
-            <h1>DropdownHeader</h1>
-            <p>Simple DropdownHeader with different sizes from <Code inline={true}>{'<h1>'}</Code> to <Code inline={true}>{'<h6>'}</Code></p>
-            <Dropdown caption="Example" color="dark">
-              <DropdownHeader importance={importance} >
-                Example Header
-              </DropdownHeader>
-            </Dropdown>
 
-            <h2>Properties</h2>
-            <PropertiesTable caption="Properties of Dropdownheader" rows={rows} />
-            <p>DropdownHeaders supports all native properties of html tag <Code inline={true}>{'<h1>'}</Code></p>
+      <h1>DropdownHeader</h1>
+      <p>Simple DropdownHeader with different sizes from <Code inline={true}>{'<h1>'}</Code> to <Code inline={true}>{'<h6>'}</Code></p>
+      <Dropdown caption="Example" color="dark">
+        <DropdownHeader importance={importance} >
+          Example Header
+        </DropdownHeader>
+      </Dropdown>
 
-            <h2>Code</h2>
-            <Code>{`import { DropdownHeader, Dropdown } from 'rm-lib-ui';
+      <h2>Properties</h2>
+      <PropertiesTable caption="Properties of Dropdownheader" rows={rows} />
+      <p>DropdownHeaders supports all native properties of html tag <Code inline={true}>{'<h1>'}</Code></p>
+
+      <h2>Code</h2>
+      <Code>{`import { DropdownHeader, Dropdown } from 'rm-lib-ui';
 ...
 <Dropdown caption="Example" color="dark">
   <DropdownHeader importance={importance} >
     Example Header
   </DropdownHeader>
 </Dropdown>`}
-            </Code>
-          </div>
-        </div>
-      </div>
+      </Code>
     </div>
+
   );
 }

@@ -12,9 +12,12 @@ export default function DropdownDoc(props) {
   const [dropdownActionActive, setDropdownActionActive] = useState(false);
 
   const [color, setColor] = useState('');
+  const [textColor, setTextColor] = useState(null);
   const [caption, setCaption] = useState('Example');
 
   const colors = ['primary', 'secondary', 'success', 'warning', 'danger', 'info', 'dark', 'light', 'link', ''];
+  const textColors = [null,'primary','secondary','success','info','danger','warning','light','dark','body','muted',
+  'white','black-50','white-50'];
   const rows = [[
     'caption', 'string', 'yes', null, <Textbox value={caption} onChange={e => setCaption(e.target.value)} />,
     'text for caption'
@@ -25,48 +28,50 @@ export default function DropdownDoc(props) {
       {colors.map(colorItem => (<option key={colorItem} >{colorItem}</option>))}
     </Select>, 'fill color'
   ], [
+    'textColor', textColors.slice(1).reduce((previous, current) => current ? `${previous} | ${current}` : previous), 'yes', null,
+    <Select onChange={e => setTextColor(e.target.value)} value={textColor}>
+      {textColors.map(item => (<option key={item} >{item}</option>))}
+    </Select>, 'set text color'
+  ], [
     'children', 'Array<DropdownHeader | DropdownAction | DropdownAnchor | DropdownDivider | DropdownLink>',
     'yes', null, null, null
   ]];
 
   return (
     <div>
-      <Breadcrumb divider="/">
+      <Breadcrumb className="d-block d-xl-none">
         <BreadcrumbItem><Link to="/">Readme</Link></BreadcrumbItem>
         <BreadcrumbItem active="true">Dropdown</BreadcrumbItem>
       </Breadcrumb>
-      <div className='container-md'>
-        <div className='row'>
-          <div className='col'>
-            <h1>Dropdown</h1>
-            <p>Dropdown</p>
-            <Dropdown caption={caption} color={color} >
-              <DropdownHeader>Header</DropdownHeader>
-              <DropdownAction onClick={() => setDropdownActionActive(!dropdownActionActive)} active={dropdownActionActive}>Action</DropdownAction>
-              <DropdownAnchor id="anchor2" href="#">Anchor</DropdownAnchor>
-              <DropdownDivider />
-              <DropdownLink to="#">Link</DropdownLink>
-            </Dropdown>
 
-            <h2>Properties</h2>
-            <PropertiesTable caption="Properties of Dropdown" rows={rows} />
-            <p>Dropdown supports all native properties of html tag <Code inline={true}>{'<div>'}</Code></p>
+      <h1>Dropdown</h1>
+      <p>Dropdown</p>
+      <Dropdown caption={caption} color={color} textColor={textColor} >
+        <DropdownHeader>Header</DropdownHeader>
+        <DropdownAction onClick={() => setDropdownActionActive(!dropdownActionActive)} active={dropdownActionActive}>Action</DropdownAction>
+        <DropdownAnchor id="anchor2" href="#">Anchor</DropdownAnchor>
+        <DropdownDivider />
+        <DropdownLink to="#">Link</DropdownLink>
+      </Dropdown>
 
-            <h2>Code</h2>
-            <Code>{`
-import { Dropdown, DropdownHeader, DropdownAction, DropdownAnchor, DropdownLink, DropdownDivider } from 'rm-lib-ui';
+      <h2>Properties</h2>
+      <PropertiesTable caption="Properties of Dropdown" rows={rows} />
+      <p>Dropdown supports all native properties of html tag <Code inline={true}>{'<div>'}</Code></p>
+
+      <h2>Code</h2>
+      <Code>{`
+import { Dropdown, DropdownHeader, DropdownAction, DropdownAnchor, 
+  DropdownLink, DropdownDivider } from 'rm-lib-ui';
 ...
-<Dropdown caption="${caption}" color="${color}" >
+<Dropdown caption="${caption}" color="${color}" textColor="${textColor}" >
   <DropdownHeader>Header</DropdownHeader>
-  <DropdownAction onClick={() => setDropdownActionActive(!dropdownActionActive)} active={dropdownActionActive}>Action</DropdownAction>
+  <DropdownAction onClick={() => setDropdownActionActive(!dropdownActionActive)} 
+    active={dropdownActionActive}>Action</DropdownAction>
   <DropdownAnchor id="anchor2" href="#">Anchor</DropdownAnchor>
   <DropdownDivider />
   <DropdownLink to="#">Link</DropdownLink>
 </Dropdown>`}
-            </Code>
-          </div>
-        </div>
-      </div>
+      </Code>
 
       <References>
         <NavLink to="/dropdown/action">DropdownAction</NavLink>

@@ -16,37 +16,33 @@ export default function NavDoc(props) {
 
   return (
     <div>
-      <Breadcrumb divider="/">
+      <Breadcrumb>
         <BreadcrumbItem><Link to="/">Readme</Link></BreadcrumbItem>
         <BreadcrumbItem><Link to="/navbar">Navbar</Link></BreadcrumbItem>
         <BreadcrumbItem active="true">NavbarText</BreadcrumbItem>
       </Breadcrumb>
-      <div className='container-md'>
-        <div className='row'>
-          <div className='col'>
-            <h1>NavbarText</h1>
-            <p>NavbarText is subitem of Navbar </p>
-            <Navbar>
-            <NavbarText >
-              {text}
-            </NavbarText>
-            </Navbar>
 
-            <h2>Properties</h2>
-            <PropertiesTable caption="Properties of NavbarText" rows={rows} />
-            <p>NavbarText supports all native properties of html tag <Code inline={true}>{'<span>'}</Code></p>
+      <h1>NavbarText</h1>
+      <p>NavbarText is subitem of Navbar </p>
+      <Navbar>
+        <NavbarText >
+          {text}
+        </NavbarText>
+      </Navbar>
 
-            <h2>Code</h2>
-            <Code>{`import { Navbar, NavbarText } from 'rm-lib-ui';
+      <h2>Properties</h2>
+      <PropertiesTable caption="Properties of NavbarText" rows={rows} />
+      <p>NavbarText supports all native properties of html tag <Code inline={true}>{'<span>'}</Code></p>
+
+      <h2>Code</h2>
+      <Code>{`import { Navbar, NavbarText } from 'rm-lib-ui';
 ...
 <Navbar>
   <NavbarText>{text}</NavbarText>
 </Navbar>`}
-            </Code>
+      </Code>
 
-          </div>
-        </div>
-      </div>
     </div>
+
   );
 }

@@ -30,7 +30,7 @@ export default function ButtonDoc(props) {
 
   return (
     <div>
-      <Breadcrumb divider="/">
+      <Breadcrumb className="d-block d-xl-none">
         <BreadcrumbItem><Link to="/">Readme</Link></BreadcrumbItem>
         <BreadcrumbItem active="true">Button</BreadcrumbItem>
       </Breadcrumb>

@@ -50,52 +50,53 @@ export default function NavbarDoc(props) {
 
   return (
     <div>
-      <Breadcrumb divider="/">
+      <Breadcrumb className="d-block d-xl-none">
         <BreadcrumbItem><Link to="/">Readme</Link></BreadcrumbItem>
         <BreadcrumbItem active="true">Navbar</BreadcrumbItem>
       </Breadcrumb>
-      <div className='container-md'>
-        <div className='row'>
-          <div className='col'>
-            <h1>Navbar</h1>
-            <p>Responsive navigation bar</p>
-            <Navbar brand={brand} color={color} backgroundColor={backgroundColor} breakpoint={breakpoint} position={position} >
-              <NavbarNav>
-                <NavLink to="#">Link</NavLink>
-                <NavAction onClick={() => setNavActionActive(!navbarActionActive)} active={navbarActionActive}>Action</NavAction>
-                <NavAnchor id="anchor1" href="#anchor1">Anchor</NavAnchor>
-                <NavDropdown caption="Dropdown">
-                  <DropdownHeader>Header</DropdownHeader>
-                  <DropdownAction onClick={() => setDropdownActionActive(!dropdownActionActive)} active={dropdownActionActive}>Action</DropdownAction>
-                  <DropdownAnchor id="anchor2" href="#">Anchor</DropdownAnchor>
-                  <DropdownDivider />
-                  <DropdownLink to="#">Link</DropdownLink>
-                </NavDropdown>
-              </NavbarNav>
-              <InlineForm className="my-2 my-lg-0">
-                <Textbox className="mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                <Button className="my-2 my-sm-0" type="submit" outlineColor="success" onClick={() => { }}>Search</Button>
-              </InlineForm>
-            </Navbar>
 
-            <h2>Properties</h2>
-            <PropertiesTable caption="Properties of Navbar" rows={rows} />
-            <p>Navbar supports all native properties of html tag <Code inline={true}>{'<nav>'}</Code></p>
+      <h1>Navbar</h1>
+      <p>Responsive navigation bar</p>
+      <Navbar brand={brand} color={color} backgroundColor={backgroundColor} breakpoint={breakpoint} position={position} >
+        <NavbarNav>
+          <NavLink to="#">Link</NavLink>
+          <NavAction onClick={() => setNavActionActive(!navbarActionActive)} active={navbarActionActive}>Action</NavAction>
+          <NavAnchor id="anchor1" href="#anchor1">Anchor</NavAnchor>
+          <NavDropdown caption="Dropdown">
+            <DropdownHeader>Header</DropdownHeader>
+            <DropdownAction onClick={() => setDropdownActionActive(!dropdownActionActive)} active={dropdownActionActive}>Action</DropdownAction>
+            <DropdownAnchor id="anchor2" href="#">Anchor</DropdownAnchor>
+            <DropdownDivider />
+            <DropdownLink to="#">Link</DropdownLink>
+          </NavDropdown>
+        </NavbarNav>
+        <InlineForm className="my-2 my-lg-0">
+          <Textbox className="mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+          <Button className="my-2 my-sm-0" type="submit" outlineColor="success" onClick={() => { }}>Search</Button>
+        </InlineForm>
+      </Navbar>
 
-            <h2>Code</h2>
-            <Code>{`
+      <h2>Properties</h2>
+      <PropertiesTable caption="Properties of Navbar" rows={rows} />
+      <p>Navbar supports all native properties of html tag <Code inline={true}>{'<nav>'}</Code></p>
+
+      <h2>Code</h2>
+      <Code>{`
 import { Navbar, NavbarNav, NavLink, NavAction, NavAnchor, NavDropdown, 
   DropdownHeader, DropdownAction, DropdownAnchor, DropdownLink, DropdownDivider,
   InlineForm, Textbox, Button } from 'rm-lib-ui';
 ...
-<Navbar brand="${brand}" color="${color}" backgroundColor="${backgroundColor}" breakpoint="${breakpoint}" position="${position}" >
+<Navbar brand="${brand}" color="${color}" backgroundColor="${backgroundColor}" breakpoint="${breakpoint}" 
+    position="${position}" >
   <NavbarNav>
     <NavLink to="#">Link</NavLink>
-    <NavAction onClick={() => setNavActionActive(!navbarActionActive)} active={navbarActionActive}>Action</NavAction>
+    <NavAction onClick={() => setNavActionActive(!navbarActionActive)} 
+      active={navbarActionActive}>Action</NavAction>
     <NavAnchor id="anchor1" href="#anchor1">Anchor</NavAnchor>
     <NavDropdown caption="Dropdown">
       <DropdownHeader>Header</DropdownHeader>
-      <DropdownAction onClick={() => setDropdownActionActive(!dropdownActionActive)} active={dropdownActionActive}>Action</DropdownAction>
+      <DropdownAction onClick={() => setDropdownActionActive(!dropdownActionActive)} 
+        active={dropdownActionActive}>Action</DropdownAction>
       <DropdownAnchor id="anchor2" href="#">Anchor</DropdownAnchor>
       <DropdownDivider />
       <DropdownLink to="#">Link</DropdownLink>
@@ -103,21 +104,17 @@ import { Navbar, NavbarNav, NavLink, NavAction, NavAnchor, NavDropdown,
   </NavbarNav>
   <InlineForm className="my-2 my-lg-0">
     <Textbox className="mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-    <Button className="my-2 my-sm-0" type="submit" outlineColor="success" onClick={() => { }}>Search</Button>
+    <Button className="my-2 my-sm-0" type="submit" outlineColor="success" 
+      onClick={() => { }}>Search</Button>
   </InlineForm>
 </Navbar>`}</Code>
 
-            <h2>References</h2>
-            <Nav breakAt="allways">
-              <NavLink to="/button">Button</NavLink>
-              <NavLink to="/inline-form">InlineForm</NavLink>
-              <NavLink to="/navbar/nav">NavbarNav</NavLink>
-              <NavLink to="/navbar/text">NavbarText</NavLink>
-              <NavLink to="/textbox">Textbox</NavLink>
-            </Nav>
-          </div>
-        </div>
-      </div>
+      <h2>References</h2>
+      <Nav breakAt="allways">
+        <NavLink to="/navbar/nav">NavbarNav</NavLink>
+        <NavLink to="/navbar/text">NavbarText</NavLink>
+      </Nav>
+
     </div>
   );
 }

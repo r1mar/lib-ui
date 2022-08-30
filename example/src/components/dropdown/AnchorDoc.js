@@ -29,38 +29,34 @@ export default function AnchorDoc(props) {
 
   return (
     <div>
-      <Breadcrumb divider="/">
+      <Breadcrumb>
         <BreadcrumbItem><Link to="/">Readme</Link></BreadcrumbItem>
         <BreadcrumbItem><Link to="/dropdown">Dropdown</Link></BreadcrumbItem>
         <BreadcrumbItem active="true">DropdownAnchor</BreadcrumbItem>
       </Breadcrumb>
-      <div className='container-md'>
-        <div className='row'>
-          <div className='col'>
-            <h1>DropdownAnchor</h1>
-            <p>Simple clickable DropdownAnchor. it became active state by current url automatically</p>
-            <Dropdown caption="Example" color="dark">
-              <DropdownAnchor activeLabel={activeLabel} disabled={disabled} href={href} >
-                Example Anchor
-              </DropdownAnchor>
-            </Dropdown>
 
-            <h2>Properties</h2>
-            <PropertiesTable caption="Properties of DropdownAnchor" rows={rows} />
-            <p>DropdownAnchor supports all native properties of html tag <Code inline={true}>{'<a>'}</Code></p>
+      <h1>DropdownAnchor</h1>
+      <p>Simple clickable DropdownAnchor. it became active state by current url automatically</p>
+      <Dropdown caption="Example" color="dark">
+        <DropdownAnchor activeLabel={activeLabel} disabled={disabled} href={href} >
+          Example Anchor
+        </DropdownAnchor>
+      </Dropdown>
 
-            <h2>Code</h2>
-            <Code>{`import { DropdownAnchor, Dropdown } from 'rm-lib-ui';
+      <h2>Properties</h2>
+      <PropertiesTable caption="Properties of DropdownAnchor" rows={rows} />
+      <p>DropdownAnchor supports all native properties of html tag <Code inline={true}>{'<a>'}</Code></p>
+
+      <h2>Code</h2>
+      <Code>{`import { DropdownAnchor, Dropdown } from 'rm-lib-ui';
 ...
 <Dropdown caption="Example" color="dark">
   <DropdownAnchor href="${href}" activeLabel="${activeLabel}" disabled={disabled} >
     Example Anchor
   </DropdownAnchor>
 </Dropdown>`}
-            </Code>
-          </div>
-        </div>
-      </div>
+      </Code>
     </div>
+
   );
 }
